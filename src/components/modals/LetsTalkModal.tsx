@@ -1,8 +1,8 @@
 'use client';
 
-import { useState, useEffect, useRef, FormEvent } from 'react';
+import { FormEvent, useState } from 'react';
 import { useModal } from '@/context/ModalContext';
-import styles from './LetsTalkModal.module.css';
+import styles from './CtaSection.module.css';
 
 const APPS_SCRIPT_URL =
   'https://script.google.com/macros/s/AKfycbz-C05ZKaQlo3VDSTtdqbcHjOkOrjQuwhC7ZsiLk5SGXq9Szkfc9c9kY3M1eZqMNut7NQ/exec';
@@ -18,61 +18,36 @@ function isWorkEmail(email: string) {
   return domain && !BLOCKED_DOMAINS.includes(domain);
 }
 
-interface FormState {
-  firstName: string;
-  lastName: string;
-  company: string;
-  role: string;
-  email: string;
-  challenge: string;
-  source: string;
-}
+const ctaBullets = [
+  'Works with your existing mail house, ESP, and targeting process',
+  'No PII or sensitive data required',
+  '2–3 day production turnaround',
+  'Starts with proof on your own historical data',
+];
 
-const INITIAL_STATE: FormState = {
+const INITIAL_STATE = {
   firstName: '', lastName: '', company: '', role: '',
   email: '', challenge: '', source: '',
 };
 
-export default function LetsTalkModal() {
-  const { isLetsTalkOpen, closeLetsTalk } = useModal();
-  const [form, setForm] = useState<FormState>(INITIAL_STATE);
-  const [errors, setErrors] = useState<Partial<Record<keyof FormState, string>>>({});
+export default function CtaSection() {
+  const { openLetsTalk } = useModal();
+  const [form, setForm] = useState(INITIAL_STATE);
+  const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [submitError, setSubmitError] = useState(false);
-  const firstInputRef = useRef<HTMLInputElement>(null);
 
-  useEffect(() => {
-    if (isLetsTalkOpen) {
-      setTimeout(() => firstInputRef.current?.focus(), 100);
-    } else {
-      setTimeout(() => {
-        setForm(INITIAL_STATE);
-        setErrors({});
-        setSubmitted(false);
-        setLoading(false);
-        setSubmitError(false);
-      }, 300);
-    }
-  }, [isLetsTalkOpen]);
-
-  useEffect(() => {
-    function onKeyDown(e: KeyboardEvent) {
-      if (e.key === 'Escape') closeLetsTalk();
-    }
-    document.addEventListener('keydown', onKeyDown);
-    return () => document.removeEventListener('keydown', onKeyDown);
-  }, [closeLetsTalk]);
-
-  function update(field: keyof FormState) {
+  function update(field: string) {
     return (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
-      setForm((prev) => ({ ...prev, [field]: e.target.value }));
-      if (errors[field]) setErrors((prev) => ({ ...prev, [field]: '' }));
+      setForm((p) => ({ ...p, [field]: e.target.value }));
+      setErrors((p) => ({ ...p, [field]: '' }));
     };
   }
 
-  function validate(): boolean {
-    const newErrors: typeof errors = {};
+  async function handleSubmit(e: FormEvent) {
+    e.preventDefault();
+    const newErrors: Record<string, string> = {};
     if (!form.firstName.trim()) newErrors.firstName = 'Required';
     if (!form.lastName.trim()) newErrors.lastName = 'Required';
     if (!form.company.trim()) newErrors.company = 'Required';
@@ -83,13 +58,8 @@ export default function LetsTalkModal() {
       newErrors.email = 'Please use your work email address';
     }
     if (!form.challenge.trim()) newErrors.challenge = 'Required';
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  }
+    if (Object.keys(newErrors).length > 0) { setErrors(newErrors); return; }
 
-  async function handleSubmit(e: FormEvent) {
-    e.preventDefault();
-    if (!validate()) return;
     setLoading(true);
     setSubmitError(false);
 
@@ -109,110 +79,97 @@ export default function LetsTalkModal() {
     }
   }
 
-  if (!isLetsTalkOpen) return null;
-
   return (
-    <div
-      className={styles.overlay}
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="ltm-title"
-      onClick={(e) => { if (e.target === e.currentTarget) closeLetsTalk(); }}
-    >
-      <div className={styles.modal}>
-        <div className={styles.stripe} />
-
-        {submitted ? (
-          <div className={styles.success}>
-            <div className={styles.successIcon}>✓</div>
-            <h2 className={styles.successTitle}>You&apos;re on our radar.</h2>
-            <p className={styles.successBody}>
-              Thanks for reaching out. We&apos;ll review your information and be in touch within one business day.
-            </p>
-            <button className={styles.successClose} onClick={closeLetsTalk}>
-              Close
-            </button>
-          </div>
-        ) : (
-          <>
-            <div className={styles.header}>
-              <div>
-                <div className={styles.eyebrow}>
-                  <span className={styles.dot} />
-                  Get in touch
-                </div>
-                <h2 className={styles.title} id="ltm-title">Let&apos;s Talk</h2>
-                <p className={styles.subtitle}>
-                  Tell us a little about yourself and we&apos;ll be in touch within one business day.
-                </p>
+    <section id="cta" className={styles.section}>
+      <div className={styles.container}>
+        {/* Left */}
+        <div className={`${styles.copy} aig-reveal`}>
+          <span className={styles.tag}>Start with Proof</span>
+          <h2 className={styles.heading}>
+            See the lift on your data.<br />Before a single live campaign.
+          </h2>
+          <p className={styles.sub}>
+            Every AIgnyte engagement starts with a blind holdout on your historical campaigns.
+            You see the lift before you commit to anything.
+          </p>
+          <div className={styles.bullets}>
+            {ctaBullets.map((b) => (
+              <div key={b} className={styles.bullet}>
+                <span className={styles.bulletDot} />
+                <p>{b}</p>
               </div>
-              <button className={styles.close} onClick={closeLetsTalk} aria-label="Close">✕</button>
-            </div>
+            ))}
+          </div>
+          <p className={styles.contact}>
+            Or call us at (908) 747-2000 · info@aignyte.com
+          </p>
+        </div>
 
-            <form className={styles.form} onSubmit={handleSubmit} noValidate>
-              <div className={styles.row}>
-                <Field label="First name" required error={errors.firstName}>
+        {/* Right: inline form */}
+        <div className={`${styles.formPanel} aig-reveal`}>
+          {submitted ? (
+            <div className={styles.successState}>
+              <div className={styles.successIcon}>✓</div>
+              <h3 className={styles.successTitle}>You&apos;re on our radar.</h3>
+              <p className={styles.successBody}>We&apos;ll be in touch within one business day.</p>
+            </div>
+          ) : (
+            <>
+              <div className={styles.formTitle}>Get in touch</div>
+              <p className={styles.formSub}>Tell us about your program and we&apos;ll set up a call.</p>
+              <form onSubmit={handleSubmit} noValidate>
+
+                <div style={{ display: 'flex', gap: '0.75rem' }}>
                   <input
-                    ref={firstInputRef}
-                    className={`${styles.input} ${errors.firstName ? styles.err : ''}`}
-                    type="text" autoComplete="given-name" placeholder="Jane"
+                    className={`field-input ${errors.firstName ? 'error' : ''}`}
+                    type="text" placeholder="First name"
                     value={form.firstName} onChange={update('firstName')}
                   />
-                </Field>
-                <Field label="Last name" required error={errors.lastName}>
                   <input
-                    className={`${styles.input} ${errors.lastName ? styles.err : ''}`}
-                    type="text" autoComplete="family-name" placeholder="Smith"
+                    className={`field-input ${errors.lastName ? 'error' : ''}`}
+                    type="text" placeholder="Last name"
                     value={form.lastName} onChange={update('lastName')}
                   />
-                </Field>
-              </div>
+                </div>
 
-              <div className={styles.row}>
-                <Field label="Company / Organisation" required error={errors.company}>
-                  <input
-                    className={`${styles.input} ${errors.company ? styles.err : ''}`}
-                    type="text" autoComplete="organization" placeholder="Acme Financial"
-                    value={form.company} onChange={update('company')}
-                  />
-                </Field>
-                <Field label="Job title / Role" required error={errors.role}>
-                  <select
-                    className={`${styles.select} ${errors.role ? styles.err : ''}`}
-                    value={form.role} onChange={update('role')}
-                  >
-                    <option value="">Select role…</option>
-                    <option>CMO / VP Marketing</option>
-                    <option>Director of Marketing</option>
-                    <option>Direct Marketing Manager</option>
-                    <option>Marketing Analyst</option>
-                    <option>CEO / President</option>
-                    <option>CTO / VP Technology</option>
-                    <option>Data Science / Analytics</option>
-                    <option>Other</option>
-                  </select>
-                </Field>
-              </div>
-
-              <Field label="Work email" required error={errors.email}>
                 <input
-                  className={`${styles.input} ${errors.email ? styles.err : ''}`}
-                  type="email" autoComplete="email" placeholder="jane@company.com"
+                  className={`field-input ${errors.company ? 'error' : ''}`}
+                  type="text" placeholder="Company / Organisation"
+                  value={form.company} onChange={update('company')}
+                />
+
+                <select
+                  className={`field-input field-select ${errors.role ? 'error' : ''}`}
+                  value={form.role} onChange={update('role')}
+                >
+                  <option value="">Job title / Role…</option>
+                  <option>CMO / VP Marketing</option>
+                  <option>Director of Marketing</option>
+                  <option>Direct Marketing Manager</option>
+                  <option>Marketing Analyst</option>
+                  <option>CEO / President</option>
+                  <option>CTO / VP Technology</option>
+                  <option>Data Science / Analytics</option>
+                  <option>Other</option>
+                </select>
+
+                <input
+                  className={`field-input ${errors.email ? 'error' : ''}`}
+                  type="email" placeholder="Work email"
                   value={form.email} onChange={update('email')}
                 />
-              </Field>
 
-              <Field label="What challenge are you trying to solve?" required error={errors.challenge}>
                 <textarea
-                  className={`${styles.input} ${styles.textarea} ${errors.challenge ? styles.err : ''}`}
-                  placeholder="Tell us about your direct marketing goals or challenges…"
+                  className={`field-input ${styles.textarea} ${errors.challenge ? 'error' : ''}`}
+                  placeholder="What challenge are you trying to solve?"
                   value={form.challenge} onChange={update('challenge')}
                 />
-              </Field>
 
-              <Field label="How did you hear about AIgnyte?" error={errors.source}>
-                <select className={styles.select} value={form.source} onChange={update('source')}>
-                  <option value="">Select…</option>
+                <select
+                  className="field-input field-select"
+                  value={form.source} onChange={update('source')}
+                >
+                  <option value="">How did you hear about AIgnyte?</option>
                   <option>LinkedIn</option>
                   <option>Google search</option>
                   <option>Word of mouth / Referral</option>
@@ -220,45 +177,22 @@ export default function LetsTalkModal() {
                   <option>Direct mail industry publication</option>
                   <option>Other</option>
                 </select>
-              </Field>
 
-              {submitError && (
-                <p className={styles.errMsg}>
-                  Something went wrong. Please try again or email us directly.
-                </p>
-              )}
+                {submitError && (
+                  <p style={{ color: 'red', fontSize: '0.85rem', marginTop: '0.5rem' }}>
+                    Something went wrong. Please try again or email us directly.
+                  </p>
+                )}
 
-              <div className={styles.privacy}>
-                <span className={styles.privacyIcon}>🔒</span>
-                <span>Your information is confidential and will never be shared with third parties.</span>
-              </div>
-
-              <button type="submit" className={styles.submit} disabled={loading}>
-                {loading ? 'Sending…' : <><span>Schedule a Call</span> <span>→</span></>}
-              </button>
-            </form>
-          </>
-        )}
+                <button type="submit" className={styles.submit} disabled={loading}>
+                  {loading ? 'Sending…' : 'Send Message →'}
+                </button>
+                <p className={styles.formNote}>We reply within one business day.</p>
+              </form>
+            </>
+          )}
+        </div>
       </div>
-    </div>
-  );
-}
-
-function Field({
-  label, required, error, children,
-}: {
-  label: string;
-  required?: boolean;
-  error?: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <div className={styles.field}>
-      <label className={styles.label}>
-        {label}{required && <span className={styles.req}> *</span>}
-      </label>
-      {children}
-      {error && <span className={styles.errMsg}>{error}</span>}
-    </div>
+    </section>
   );
 }
