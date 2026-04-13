@@ -4,6 +4,9 @@ import { useState, useEffect, useRef, FormEvent } from 'react';
 import { useModal } from '@/context/ModalContext';
 import styles from './LetsTalkModal.module.css';
 
+const APPS_SCRIPT_URL =
+  'https://script.google.com/macros/s/AKfycbyWzVJaEsEL7N1fx4B2xr5wOwbFYo1QMTRc6Wmfl7cer4d8jnvXdAgScszAkE676jyY5A/exec';
+
 const BLOCKED_DOMAINS = [
   'gmail.com','yahoo.com','hotmail.com','outlook.com','aol.com','icloud.com',
   'me.com','mac.com','live.com','msn.com','ymail.com','protonmail.com',
@@ -36,6 +39,7 @@ export default function LetsTalkModal() {
   const [errors, setErrors] = useState<Partial<Record<keyof FormState, string>>>({});
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
   const firstInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -48,6 +52,7 @@ export default function LetsTalkModal() {
         setErrors({});
         setSubmitted(false);
         setLoading(false);
+        setSubmitError(false);
       }, 300);
     }
   }, [isLetsTalkOpen]);
@@ -83,15 +88,26 @@ export default function LetsTalkModal() {
     return Object.keys(newErrors).length === 0;
   }
 
-  function handleSubmit(e: FormEvent) {
+  async function handleSubmit(e: FormEvent) {
     e.preventDefault();
     if (!validate()) return;
     setLoading(true);
-    // Simulate submission — replace with actual API call
-    setTimeout(() => {
-      setLoading(false);
+    setSubmitError(false);
+
+    try {
+      await fetch(APPS_SCRIPT_URL, {
+        method: 'POST',
+        // Apps Script requires no-cors when called from the browser directly
+        mode: 'no-cors',
+        body: JSON.stringify(form),
+      });
       setSubmitted(true);
-    }, 1200);
+    } catch (err) {
+      console.error('Form submission error:', err);
+      setSubmitError(true);
+    } finally {
+      setLoading(false);
+    }
   }
 
   if (!isLetsTalkOpen) return null;
@@ -206,6 +222,12 @@ export default function LetsTalkModal() {
                   <option>Other</option>
                 </select>
               </Field>
+
+              {submitError && (
+                <p className={styles.errMsg}>
+                  Something went wrong. Please try again or email us directly.
+                </p>
+              )}
 
               <div className={styles.privacy}>
                 <span className={styles.privacyIcon}>🔒</span>
