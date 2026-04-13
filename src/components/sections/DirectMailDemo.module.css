@@ -1,0 +1,303 @@
+/* ── Layout ── */
+.visualArea {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+  margin-bottom: 36px;
+}
+
+/* ── Legend ── */
+.legend { margin-bottom: 14px; }
+.legendTitle {
+  font-size: 11px; font-weight: 700;
+  color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.legendItems { display: flex; flex-wrap: wrap; gap: 10px; }
+.legendItem {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: 11px; color: var(--mid);
+}
+.legendDot {
+  width: 16px; height: 16px;
+  background: var(--orange); border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 8px; font-weight: 800; color: white;
+}
+
+/* ── Direct mail card ── */
+.mailCard {
+  border-radius: 8px;
+  padding: 0;
+  position: relative;
+  overflow: visible;
+  height: 320px;
+  background: #dce8f5;
+  box-shadow: 0 6px 28px rgba(0,0,0,0.14), 0 1px 4px rgba(0,0,0,0.08);
+  border: 1px solid #a8c0da;
+}
+
+/* ── Annotation targets ── */
+.target {
+  border-radius: 4px;
+  transition: box-shadow 0.2s ease, outline-color 0.2s ease;
+  outline: 2px solid transparent;
+  outline-offset: 3px;
+}
+.targetLit {
+  outline-color: rgba(237,125,49,0.85);
+  box-shadow: 0 0 0 4px rgba(237,125,49,0.2), 0 0 20px rgba(237,125,49,0.35);
+  background-color: rgba(237,125,49,0.15) !important;
+}
+
+/* Stripe target */
+.stripeTarget {
+  position: absolute; top: 0; left: 0; bottom: 0; width: 6px;
+  background: linear-gradient(180deg, #1a2b5e 0%, #243575 100%);
+  border-radius: 8px 0 0 8px;
+  z-index: 2;
+}
+
+/* ── Hotspot pin ── */
+.hotspot {
+  width: 20px; height: 20px; border-radius: 50%; flex-shrink: 0;
+  background: var(--orange); border: 2px solid var(--white);
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 9px; font-weight: 800; color: var(--white);
+  box-shadow: 0 2px 6px rgba(237,125,49,0.5);
+  cursor: pointer; position: relative; z-index: 30;
+  transition: transform 0.15s, box-shadow 0.15s;
+  user-select: none;
+  font-family: var(--font-geist-mono, monospace);
+}
+@media (hover: hover) and (pointer: fine) {
+  .hotspot:hover {
+    transform: scale(1.22);
+    box-shadow: 0 3px 12px rgba(237,125,49,0.7);
+  }
+  .hotspot:hover .tooltip {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  .hotspot:hover .tooltipTR {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+  .hotspot:hover .tooltipTA {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* ── Tooltips ── */
+.tooltip {
+  position: absolute; z-index: 200;
+  background: var(--white); border: 1.5px solid rgba(237,125,49,0.35);
+  border-top: none; border-radius: 5px;
+  padding: 7px 11px; white-space: nowrap;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  opacity: 0; pointer-events: none;
+  top: 26px; left: 50%; transform: translateX(-50%) translateY(4px);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+/* to the right */
+.tooltipTR {
+  top: 50%; left: 26px; right: auto;
+  transform: translateY(-50%) translateX(4px);
+  border-top: 1.5px solid rgba(237,125,49,0.35);
+  border-left: none;
+}
+/* above */
+.tooltipTA {
+  top: auto; bottom: 26px; left: 50%;
+  transform: translateX(-50%) translateY(-4px);
+  border-top: 1.5px solid rgba(237,125,49,0.35);
+  border-bottom: 3px solid var(--orange);
+  border-left: 1.5px solid rgba(237,125,49,0.35);
+}
+
+.tooltipDim {
+  font-family: var(--font-geist-mono, monospace);
+  font-size: 9px; font-weight: 700; color: var(--orange);
+  text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 2px;
+}
+.tooltipVal { font-size: 12px; font-weight: 700; color: var(--ink); }
+
+/* ── Postal elements ── */
+.returnAddr {
+  position: absolute; top: 12px; left: 18px; z-index: 10;
+  font-family: var(--font-geist-mono, monospace); font-size: 7px;
+  color: #4a5d8a; line-height: 1.7; letter-spacing: 0.02em;
+}
+.returnName {
+  font-weight: 700; color: #1a2b5e; font-size: 7.5px;
+  text-transform: uppercase; letter-spacing: 0.07em;
+}
+.stamp {
+  position: absolute; top: 10px; right: 14px; z-index: 15;
+  width: 40px; height: 48px; background: white;
+  border: 1px solid #c0b8a8;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 2px; outline: 3px dotted #c0b0a0; outline-offset: 1px;
+}
+.stampInner {
+  width: 32px; height: 30px;
+  background: linear-gradient(135deg, #b8cef0 0%, #7fa8d8 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px;
+}
+.stampLabel {
+  font-family: var(--font-geist-mono, monospace); font-size: 5.5px;
+  color: #666; letter-spacing: 0.04em; text-transform: uppercase; line-height: 1.2;
+  text-align: center;
+}
+.firstClass {
+  position: absolute; top: 62px; right: 14px; z-index: 10;
+  font-family: var(--font-geist-mono, monospace); font-size: 6.5px; font-weight: 700;
+  color: #7a6e5e; letter-spacing: 0.1em; text-transform: uppercase;
+}
+.addrWindow {
+  position: absolute; left: 18px; top: 50%; transform: translateY(-50%);
+  width: 145px; height: 64px;
+  border: 1px solid #b8ad9e; border-radius: 2px;
+  background: rgba(255,255,255,0.75);
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 8px 10px; gap: 3px; z-index: 5;
+}
+.addrLine {
+  font-family: var(--font-geist-mono, monospace); font-size: 7.5px;
+  color: #2a2a2a; letter-spacing: 0.02em; line-height: 1;
+}
+.addrLineBold { font-weight: 700; font-size: 8px; }
+.barcode {
+  position: absolute; bottom: 10px; left: 18px;
+  display: flex; align-items: flex-end; gap: 1.5px; z-index: 5;
+}
+.bar { width: 1.5px; background: #5a5040; border-radius: 1px; }
+.divider {
+  position: absolute; left: 175px; top: 14px; bottom: 14px;
+  width: 1px; background: rgba(26,43,94,0.3); z-index: 3;
+}
+
+/* ── Message zone (right side) ── */
+.messageZone {
+  position: absolute; left: 175px; top: 0; right: 0; bottom: 0;
+  background: linear-gradient(160deg, #1a2b5e 0%, #1e3270 60%, #162450 100%);
+  border-radius: 0 8px 8px 0;
+  display: flex; flex-direction: column; align-items: flex-start; justify-content: center;
+  padding: 16px 16px 16px 14px;
+}
+.annoRow {
+  display: flex; align-items: flex-start; justify-content: center;
+  gap: 6px; width: 100%;
+}
+.msgTarget {
+  flex: 1; display: flex; flex-direction: column; gap: 5px; padding: 2px 4px;
+}
+.logoStrip {
+  font-family: var(--font-geist, sans-serif); font-size: 10px; font-weight: 400;
+  color: rgba(255,255,255,0.6); letter-spacing: 0.12em; text-transform: uppercase;
+  border-bottom: 1px solid rgba(255,255,255,0.15); padding-bottom: 4px;
+  width: 100%; margin-bottom: 2px;
+}
+.headline {
+  font-family: var(--font-geist, sans-serif); font-size: 18px; line-height: 1.2;
+  color: #ffffff; margin-bottom: 0;
+}
+.subline { font-size: 10px; color: rgba(255,255,255,0.75); font-weight: 500; }
+.cardImg {
+  width: 60px; height: 38px;
+  background: linear-gradient(135deg, #1a2b7a 0%, #3b5cb8 60%, #5b7fcc 100%);
+  border-radius: 4px; position: relative; overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+.cardChip {
+  position: absolute; top: 4px; right: 5px;
+  width: 13px; height: 9px;
+  background: rgba(255,255,255,0.15); border-radius: 2px;
+}
+.cardNum {
+  position: absolute; bottom: 4px; left: 5px;
+  font-family: var(--font-geist-mono, monospace); font-size: 5px;
+  color: rgba(255,255,255,0.6); letter-spacing: 0.1em;
+}
+.cardBrand {
+  position: absolute; top: 4px; left: 5px;
+  font-size: 7px; color: rgba(255,255,255,0.8); font-weight: 700;
+  font-family: var(--font-geist, sans-serif);
+}
+.milesLabel { font-size: 10px; color: #7eb8f7; font-weight: 700; }
+.sigLabel { font-size: 10px; color: rgba(255,255,255,0.65); font-weight: 600; }
+.offerBadge {
+  background: var(--orange); color: #fff; font-weight: 800;
+  font-size: 9px; padding: 4px 12px; border-radius: 3px;
+  letter-spacing: 0.06em; text-transform: uppercase;
+}
+.ctaCorner {
+  background: #fff; color: #1a2b5e;
+  font-size: 9px; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase;
+  padding: 3px 10px; border-radius: 2px;
+}
+
+/* ── Decoded panel (right column) ── */
+.decodedPanel {
+  background: var(--cream); border: 1px solid var(--border);
+  border-radius: 10px; padding: 14px 18px;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.decodedHeader {
+  margin-bottom: 6px; padding-bottom: 10px;
+  border-bottom: 1.5px solid var(--border);
+}
+.decodedTitle {
+  font-size: 12px; font-weight: 700; color: var(--orange);
+  letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 3px;
+}
+.decodedSubtitle {
+  font-size: 12px; font-weight: 600; color: var(--ink); line-height: 1.45;
+}
+.decodedNote {
+  margin-top: 8px; display: inline-flex; align-items: center; gap: 6px;
+  background: var(--cream2); border: 1px solid var(--border);
+  border-radius: 4px; padding: 4px 10px;
+}
+.decodedNoteIcon { font-size: 11px; color: var(--orange); }
+.decodedNote span:last-child {
+  font-family: var(--font-geist-mono, monospace);
+  font-size: 10px; color: var(--mid);
+}
+.decodedGroup { display: flex; flex-direction: column; gap: 3px; }
+.decodedGroupLabel {
+  font-family: var(--font-geist-mono, monospace);
+  font-size: 10px; font-weight: 700; color: var(--orange);
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding-bottom: 3px; border-bottom: 1px solid var(--border);
+}
+.decodedItems { display: flex; flex-direction: column; gap: 1px; }
+.decodedItem {
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 11.5px; padding: 3px 0;
+}
+.decodedItemName { color: var(--charcoal); font-weight: 500; }
+.decodedBar {
+  flex: 1; margin: 0 10px; height: 4px;
+  background: var(--border); border-radius: 100px; overflow: hidden;
+}
+.decodedFill { height: 100%; background: var(--orange); border-radius: 100px; }
+.decodedVal {
+  font-family: var(--font-geist-mono, monospace);
+  font-size: 11px; color: var(--orange); font-weight: 500;
+  min-width: 28px; text-align: right;
+}
+.presentBadge {
+  font-size: 10px; font-weight: 700; color: #1a7a45;
+  background: rgba(26,122,69,0.1); padding: 2px 8px;
+  border-radius: 100px; letter-spacing: 0.04em;
+}
+
+@media (max-width: 900px) {
+  .visualArea { grid-template-columns: 1fr; }
+  .mailCard { height: 280px; }
+}

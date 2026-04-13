@@ -1,0 +1,176 @@
+/* Hero */
+.hero {
+  background:
+    radial-gradient(ellipse 70% 60% at 20% -10%, oklch(0.68 0.160 50 / 0.08) 0%, transparent 55%),
+    var(--dark);
+  padding: 120px 52px 88px;
+}
+.heroInner { max-width: 800px; margin: 0 auto; }
+.hero h1 { color: oklch(1 0 0 / 0.92); margin: 16px 0 20px; }
+.heroSub { font-size: 18px; color: oklch(1 0 0 / 0.50); line-height: 1.65; max-width: 68ch; }
+
+/* Phases */
+.phases { background: var(--white); padding: 88px 52px; border-top: 1px solid var(--border); }
+.phasesInner {
+  max-width: 1000px; margin: 0 auto;
+  display: flex; flex-direction: column; gap: 32px;
+}
+
+.phaseCard {
+  border: 1px solid var(--border); border-radius: 8px; overflow: hidden;
+  box-shadow: rgba(1, 1, 32, 0.06) 0px 4px 24px;
+}
+.phaseHeader {
+  display: flex; align-items: flex-end; justify-content: space-between; gap: 20px;
+  padding: 28px 32px 24px; border-bottom: 1px solid var(--border);
+  background: var(--cream); flex-wrap: wrap;
+}
+.phaseNum {
+  font-family: var(--font-geist-mono, 'Geist Mono', monospace);
+  font-size: 10px; font-weight: 500; color: var(--orange);
+  text-transform: uppercase; letter-spacing: 0.10em; display: block; margin-bottom: 4px;
+}
+.phaseName {
+  font-family: var(--font-geist, 'Geist', sans-serif);
+  font-size: 24px; font-weight: 400; color: var(--ink);
+  letter-spacing: -0.03em; margin: 0;
+}
+.phaseTag {
+  font-family: var(--font-geist-mono, 'Geist Mono', monospace);
+  font-size: 10px; font-weight: 400; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.08em;
+  border: 1px solid var(--border); border-radius: 2px; padding: 4px 10px;
+  white-space: nowrap;
+}
+
+.phaseSteps {
+  padding: 0 32px; background: var(--white);
+  display: flex; flex-direction: column;
+}
+.step {
+  display: flex; gap: 20px; align-items: flex-start;
+  padding: 24px 0; border-bottom: 1px solid var(--border);
+}
+.step:last-child { border-bottom: none; }
+.stepN {
+  font-family: var(--font-geist-mono, 'Geist Mono', monospace);
+  font-size: 11px; font-weight: 500; color: var(--orange);
+  background: oklch(0.68 0.160 50 / 0.08);
+  border: 1px solid oklch(0.68 0.160 50 / 0.20);
+  border-radius: 4px; padding: 4px 8px;
+  min-width: 36px; text-align: center; flex-shrink: 0; margin-top: 2px;
+}
+.stepTitle { font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 6px; letter-spacing: -0.01em; }
+.stepBody { font-size: 14px; color: var(--mid); line-height: 1.65; }
+
+.outcome {
+  margin: 0 32px 28px; border-radius: 6px; padding: 18px 22px;
+  display: flex; align-items: flex-start; gap: 14px;
+}
+.outcomeSetup { background: oklch(0.97 0.03 145); border: 1px solid oklch(0.90 0.06 145); }
+.outcomeProd  { background: oklch(0.97 0.05 50);  border: 1px solid oklch(0.90 0.10 50); }
+.outcomeLabel {
+  font-family: var(--font-geist-mono, 'Geist Mono', monospace);
+  font-size: 9.5px; font-weight: 500; color: var(--orange);
+  text-transform: uppercase; letter-spacing: 0.08em;
+  white-space: nowrap; margin-top: 2px; flex-shrink: 0;
+}
+.outcomeText { font-size: 13.5px; font-weight: 600; color: var(--ink); line-height: 1.5; }
+
+/* Integration */
+.integration {
+  background: var(--midnight);
+  padding: 88px 52px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.integrationInner { max-width: 900px; margin: 0 auto; text-align: center; }
+.integrationH2 {
+  font-family: var(--font-geist, 'Geist', sans-serif);
+  font-size: clamp(24px, 3vw, 36px); font-weight: 400;
+  color: oklch(1 0 0 / 0.92); letter-spacing: -0.035em;
+  margin: 16px 0 48px;
+}
+
+.integrationFlow {
+  display: flex; align-items: flex-start; justify-content: center;
+  gap: 0; position: relative;
+}
+.integrationFlow::before {
+  content: '';
+  position: absolute; top: 22px; left: 15%; right: 15%; height: 1px;
+  background: oklch(1 0 0 / 0.12);
+}
+.intStep {
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  flex: 1; padding: 0 16px; position: relative; z-index: 1;
+}
+.intDot {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: oklch(1 0 0 / 0.08); border: 1px solid oklch(1 0 0 / 0.18);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-geist-mono, 'Geist Mono', monospace);
+  font-size: 14px; font-weight: 500; color: oklch(1 0 0 / 0.60);
+}
+.intDotAignyte {
+  background: oklch(0.68 0.160 50 / 0.15);
+  border-color: oklch(0.68 0.160 50 / 0.45);
+  color: var(--orange);
+}
+.intLabel {
+  font-size: 13px; font-weight: 600; color: oklch(1 0 0 / 0.80);
+  text-align: center; line-height: 1.35; letter-spacing: -0.01em;
+}
+.intSub { font-size: 11px; color: oklch(1 0 0 / 0.30); text-align: center; }
+
+/* Constraints */
+.constraints {
+  background: var(--cream); padding: 88px 52px;
+  border-top: 1px solid var(--border);
+}
+.constraintsInner { max-width: 1000px; margin: 0 auto; }
+.constraintsHeader { margin-bottom: 48px; }
+.constraintsHeader h2 { margin-top: 12px; }
+.constraintsGrid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.constraintCard {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 8px; padding: 28px;
+  display: flex; gap: 16px; align-items: flex-start;
+  box-shadow: rgba(1, 1, 32, 0.06) 0px 2px 12px;
+}
+.constraintCheck {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--go); color: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 700; flex-shrink: 0;
+}
+.constraintTitle { font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 6px; letter-spacing: -0.01em; }
+.constraintBody { font-size: 13.5px; color: var(--mid); line-height: 1.65; }
+
+/* CTA */
+.cta {
+  background: var(--midnight); padding: 100px 52px;
+  text-align: center;
+}
+.ctaInner { max-width: 600px; margin: 0 auto; }
+.cta h2 { color: oklch(1 0 0 / 0.92); margin-bottom: 16px; }
+.cta p { font-size: 16px; color: oklch(1 0 0 / 0.45); margin-bottom: 32px; line-height: 1.65; }
+.ctaBtns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+@media (max-width: 900px) {
+  .hero { padding: 100px 20px 60px; }
+  .phases { padding: 60px 20px; }
+  .phaseHeader { padding: 20px; }
+  .phaseSteps { padding: 0 20px; }
+  .outcome { margin: 0 20px 20px; }
+  .integration { padding: 60px 20px; }
+  .integrationFlow { flex-direction: column; align-items: stretch; gap: 16px; }
+  .integrationFlow::before { display: none; }
+  .intStep { flex-direction: row; align-items: center; gap: 16px; padding: 0; }
+  .intLabel, .intSub { text-align: left; }
+  .constraints { padding: 60px 20px; }
+  .constraintsGrid { grid-template-columns: 1fr; }
+  .cta { padding: 60px 20px; }
+}

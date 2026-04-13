@@ -1,0 +1,70 @@
+.section {
+  background: var(--dark);
+  padding: 100px 52px;
+  border-top: 1px solid var(--border);
+  min-height: 100dvh;
+  display: flex; flex-direction: column; justify-content: center;
+}
+
+.container {
+  max-width: 1080px; margin: 0 auto; width: 100%;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 72px; align-items: center;
+}
+
+.left {}
+
+.heading {
+  font-family: var(--font-geist, 'Geist', sans-serif);
+  font-size: clamp(26px, 3vw, 36px); font-weight: 400;
+  color: oklch(1 0 0 / 0.90); line-height: 1.05;
+  letter-spacing: -0.04em; margin: 14px 0 18px;
+}
+.heading em {
+  font-style: normal;
+  background: linear-gradient(90deg, #f07d1e 0%, #f5b84a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.body { font-size: 15px; color: oklch(1 0 0 / 0.50); line-height: 1.75; max-width: 68ch; }
+.body em { color: oklch(1 0 0 / 0.80); font-style: normal; font-weight: 600; }
+
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+.tag {
+  font-family: var(--font-geist-mono, 'Geist Mono', monospace);
+  font-size: 10px; font-weight: 400; color: oklch(1 0 0 / 0.40);
+  text-transform: uppercase; letter-spacing: 0.08em;
+  border: 1px solid oklch(1 0 0 / 0.15); border-radius: 2px; padding: 4px 10px;
+}
+
+.right { display: flex; flex-direction: column; }
+
+.item {
+  display: flex; align-items: flex-start; gap: 16px;
+  padding: 22px 0; border-bottom: 1px solid oklch(1 0 0 / 0.08);
+  transition: opacity 200ms ease;
+}
+.item:first-child { padding-top: 0; }
+.item:last-child { border-bottom: none; padding-bottom: 0; }
+
+.itemIcon {
+  font-family: var(--font-geist-mono, 'Geist Mono', monospace);
+  font-size: 11px; font-weight: 500; color: var(--orange);
+  background: oklch(0.68 0.160 50 / 0.08);
+  border: 1px solid oklch(0.68 0.160 50 / 0.20);
+  border-radius: 4px; padding: 4px 8px;
+  width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; letter-spacing: 0.06em;
+}
+
+.itemTitle { font-size: 16px; font-weight: 700; color: oklch(1 0 0 / 0.85); margin-bottom: 6px; letter-spacing: -0.02em; }
+.itemBody { font-size: 14px; color: oklch(1 0 0 / 0.40); line-height: 1.65; }
+
+@media (max-width: 900px) {
+  .section { padding: 60px 20px; min-height: auto; }
+  .container { grid-template-columns: 1fr; gap: 36px; }
+}

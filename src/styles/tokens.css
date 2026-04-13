@@ -1,0 +1,45 @@
+/* ═══════════════════════════════════════════════════════
+   AIGNYTE  ·  Design Tokens
+   Display: Spectral  ·  Body: Figtree  ·  Mono: Fira Mono
+   Colors: OKLCH perceptual palette, tinted toward orange
+   Motion: Emil Kowalski-compliant animation system
+═══════════════════════════════════════════════════════ */
+
+:root {
+  /* ── Color Palette ── */
+  --ink:       oklch(0.18 0.012 55);
+  --charcoal:  oklch(0.30 0.010 55);
+  --mid:       oklch(0.50 0.010 55);
+  --muted:     oklch(0.65 0.008 55);
+  --border:    oklch(0.88 0.016 68);
+  --cream:     oklch(0.97 0.016 78);
+  --cream2:    oklch(0.93 0.022 72);
+  --white:     oklch(0.99 0.005 75);
+  --orange:    oklch(0.68 0.160 50);
+  --orange-dk: oklch(0.58 0.160 50);
+  --orange-lt: oklch(0.96 0.030 75);
+  --red:       oklch(0.48 0.160 25);
+  --dark:      oklch(0.14 0.025 52);
+  --dark2:     oklch(0.17 0.022 52);
+  --midnight:  oklch(0.11 0.030 265);
+  --midnight2: oklch(0.15 0.025 265);
+  --go:        oklch(0.48 0.130 150);
+  --go-lt:     oklch(0.94 0.050 145);
+  --error:     oklch(0.48 0.160 25);
+  --error-lt:  oklch(0.97 0.020 25);
+
+  /* ── Easing ── */
+  --ease-out:    cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-taste:  cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* ── Shadows ── */
+  --shadow-card:       rgba(1, 1, 32, 0.08) 0px 4px 24px, rgba(127, 60, 10, 0.06) 0px 2px 8px;
+  --shadow-card-hover: rgba(1, 1, 32, 0.14) 0px 8px 40px, rgba(127, 60, 10, 0.10) 0px 2px 12px;
+  --shadow-float:      rgba(1, 1, 32, 0.18) 0px 16px 56px, rgba(127, 60, 10, 0.08) 0px 4px 20px;
+
+  /* ── Radii ── */
+  --radius-card:  8px;
+  --radius-badge: 4px;
+}
