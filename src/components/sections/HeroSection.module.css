@@ -10,6 +10,37 @@
   display: flex; flex-direction: column; justify-content: center;
 }
 
+/* Mouse-tracking orbs */
+.orbLayer {
+  position: absolute; inset: 0;
+  pointer-events: none; overflow: hidden;
+  z-index: 0;
+}
+
+/* Orb 1 — large, lazy, very soft orange */
+.orb1 {
+  position: absolute; top: 0; left: 0;
+  width: 700px; height: 700px; border-radius: 50%;
+  background: radial-gradient(circle, oklch(0.68 0.160 50 / 0.13) 0%, transparent 68%);
+  will-change: transform;
+}
+
+/* Orb 2 — medium, amber tint, mid-speed */
+.orb2 {
+  position: absolute; top: 0; left: 0;
+  width: 500px; height: 500px; border-radius: 50%;
+  background: radial-gradient(circle, oklch(0.74 0.135 58 / 0.10) 0%, transparent 68%);
+  will-change: transform;
+}
+
+/* Orb 3 — small, deep amber, snappiest — the "cursor corona" */
+.orb3 {
+  position: absolute; top: 0; left: 0;
+  width: 320px; height: 320px; border-radius: 50%;
+  background: radial-gradient(circle, oklch(0.64 0.170 42 / 0.11) 0%, transparent 65%);
+  will-change: transform;
+}
+
 .inner { max-width: 1180px; margin: 0 auto; position: relative; z-index: 1; width: 100%; }
 
 .grid {
