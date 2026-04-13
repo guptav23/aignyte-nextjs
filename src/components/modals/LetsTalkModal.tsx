@@ -5,7 +5,7 @@ import { useModal } from '@/context/ModalContext';
 import styles from './LetsTalkModal.module.css';
 
 const APPS_SCRIPT_URL =
-  'https://script.google.com/macros/s/AKfycbyWzVJaEsEL7N1fx4B2xr5wOwbFYo1QMTRc6Wmfl7cer4d8jnvXdAgScszAkE676jyY5A/exec';
+  'https://script.google.com/macros/s/AKfycbz-C05ZKaQlo3VDSTtdqbcHjOkOrjQuwhC7ZsiLk5SGXq9Szkfc9c9kY3M1eZqMNut7NQ/exec';
 
 const BLOCKED_DOMAINS = [
   'gmail.com','yahoo.com','hotmail.com','outlook.com','aol.com','icloud.com',
@@ -46,7 +46,6 @@ export default function LetsTalkModal() {
     if (isLetsTalkOpen) {
       setTimeout(() => firstInputRef.current?.focus(), 100);
     } else {
-      // Reset on close
       setTimeout(() => {
         setForm(INITIAL_STATE);
         setErrors({});
@@ -97,9 +96,9 @@ export default function LetsTalkModal() {
     try {
       await fetch(APPS_SCRIPT_URL, {
         method: 'POST',
-        // Apps Script requires no-cors when called from the browser directly
         mode: 'no-cors',
-        body: JSON.stringify(form),
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(form).toString(),
       });
       setSubmitted(true);
     } catch (err) {
