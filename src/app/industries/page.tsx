@@ -24,9 +24,9 @@ export default function IndustriesPage() {
     <>
       <section className={styles.hero}>
         <div className={styles.heroInner}>
-          <span className="section-tag">Industries</span>
-          <h1>One-to-one marketing,<br />proven across industries.</h1>
-          <p className={styles.heroSub}>
+          <span className="section-tag fi">Industries</span>
+          <h1 className="fi">One-to-one marketing,<br />proven across industries.</h1>
+          <p className={`${styles.heroSub} fi`}>
             AIgnyte works wherever direct marketing response rates matter. 20–70% proven lifts
             across financial services, healthcare, non-profit, telecom, and retail.
           </p>

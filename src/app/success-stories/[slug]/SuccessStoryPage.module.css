@@ -10,9 +10,12 @@
 .backLink {
   font-family: var(--font-geist-mono, 'Geist Mono', monospace);
   font-size: 11px; color: oklch(1 0 0 / 0.35); text-decoration: none;
-  letter-spacing: 0.04em; transition: color 150ms ease;
+  letter-spacing: 0.04em;
+  transition: color 150ms ease, transform 150ms cubic-bezier(0.23, 1, 0.32, 1);
 }
-@media (hover: hover) and (pointer: fine) { .backLink:hover { color: oklch(1 0 0 / 0.70); } }
+@media (hover: hover) and (pointer: fine) {
+  .backLink:hover { color: oklch(1 0 0 / 0.70); transform: translateX(-3px); }
+}
 .sectorTag {
   font-family: var(--font-geist-mono, 'Geist Mono', monospace);
   font-size: 9.5px; color: var(--orange); text-transform: uppercase; letter-spacing: 0.08em;
@@ -136,7 +139,13 @@
 
 /* Why it worked */
 .whyGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.whyCard { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 24px; }
+.whyCard {
+  background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 24px;
+  transition: transform 200ms cubic-bezier(0.23, 1, 0.32, 1), box-shadow 200ms ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .whyCard:hover { transform: translateY(-2px); box-shadow: rgba(1, 1, 32, 0.08) 0px 8px 28px; }
+}
 .whyCardTitle { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 8px; letter-spacing: -0.01em; }
 .whyCardBody { font-size: 13.5px; color: var(--mid); line-height: 1.65; }
 

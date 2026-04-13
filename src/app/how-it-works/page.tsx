@@ -147,9 +147,9 @@ export default function HowItWorksPage() {
       {/* Hero */}
       <section className={styles.hero}>
         <div className={styles.heroInner}>
-          <span className="section-tag">How It Works</span>
-          <h1>Two phases. Proof first, then production.</h1>
-          <p className={styles.heroSub}>
+          <span className="section-tag fi">How It Works</span>
+          <h1 className="fi">Two phases. Proof first, then production.</h1>
+          <p className={`${styles.heroSub} fi`}>
             First we demonstrate measurable lift on your existing campaigns before you commit to
             anything. Then we operate as a single decision layer inside your existing workflow —
             with no changes to your stack.
@@ -192,8 +192,8 @@ export default function HowItWorksPage() {
       {/* Where AIgnyte Fits */}
       <section className={styles.integration}>
         <div className={styles.integrationInner}>
-          <span className="section-tag light">Where AIgnyte Fits</span>
-          <h2 className={styles.integrationH2}>One new step. Everything else stays the same.</h2>
+          <span className="section-tag light aig-reveal">Where AIgnyte Fits</span>
+          <h2 className={`${styles.integrationH2} aig-reveal`}>One new step. Everything else stays the same.</h2>
           <p style={{ color: 'oklch(1 0 0 / 0.45)', fontSize: 16, lineHeight: 1.7, marginBottom: 40, maxWidth: 660 }}>
             AIgnyte sits between selection and execution — receiving your campaign file and
             returning a matched creative assignment. Your targeting models, CRM, vendors, and data

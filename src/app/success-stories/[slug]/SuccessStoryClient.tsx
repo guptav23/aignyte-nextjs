@@ -21,8 +21,8 @@ export default function SuccessStoryClient({ story }: { story: SuccessStory }) {
             <Link href="/success-stories" className={styles.backLink}>← All success stories</Link>
             <span className={styles.sectorTag}>{story.badge} · {story.channel}</span>
           </div>
-          <h1>{story.heroH1}</h1>
-          <p className={styles.heroSub}>{story.heroSub}</p>
+          <h1 className="fi">{story.heroH1}</h1>
+          <p className={`${styles.heroSub} fi`}>{story.heroSub}</p>
           <div className={styles.heroMeta}>
             {story.heroMeta.map((m, i) => <span key={i} className={styles.heroMetaItem}>{m}</span>)}
           </div>
@@ -48,7 +48,7 @@ export default function SuccessStoryClient({ story }: { story: SuccessStory }) {
           <div className={styles.glanceLabel}>At a glance</div>
           <div className={styles.glanceGrid}>
             {story.glance.map((g, i) => (
-              <div key={i} className={`${styles.glanceItem} ${g.highlight ? styles.glanceItemHighlight : ''}`}>
+              <div key={i} className={`${styles.glanceItem} ${g.highlight ? styles.glanceItemHighlight : ''} aig-reveal`}>
                 <span className={styles.glanceKey}>{g.label}</span>
                 <span className={styles.glanceVal}>{g.val}</span>
               </div>
@@ -136,7 +136,7 @@ export default function SuccessStoryClient({ story }: { story: SuccessStory }) {
           <p className={styles.sectionPara} style={{ maxWidth: '68ch', marginBottom: 32 }}>{story.whyPara}</p>
           <div className={styles.whyGrid}>
             {story.whyItems.map((item, i) => (
-              <div key={i} className={styles.whyCard}>
+              <div key={i} className={`${styles.whyCard} aig-reveal`}>
                 <h3 className={styles.whyCardTitle}>{item.title}</h3>
                 <p className={styles.whyCardBody}>{item.body}</p>
               </div>

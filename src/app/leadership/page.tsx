@@ -98,9 +98,9 @@ export default function LeadershipPage() {
       {/* Hero */}
       <section className={styles.hero}>
         <div className={styles.heroInner}>
-          <span className="section-tag">Leadership</span>
-          <h1>Practitioners who lived the problem — and built the solution</h1>
-          <p className={styles.heroSub}>
+          <span className="section-tag fi">Leadership</span>
+          <h1 className="fi">Practitioners who lived the problem — and built the solution</h1>
+          <p className={`${styles.heroSub} fi`}>
             AIgnyte was founded by people who spent careers in direct marketing and data science —
             who understood the gap between what one-to-one marketing promised and what the tools
             available could actually deliver.

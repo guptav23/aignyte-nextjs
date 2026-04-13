@@ -34,9 +34,9 @@ export default function FaqPageClient() {
       {/* Hero */}
       <section className={styles.hero}>
         <div className={styles.heroInner}>
-          <span className="section-tag">FAQ</span>
-          <h1 className={styles.heroH1}>Frequently asked questions</h1>
-          <p className={styles.heroSub}>
+          <span className="section-tag fi">FAQ</span>
+          <h1 className={`${styles.heroH1} fi`}>Frequently asked questions</h1>
+          <p className={`${styles.heroSub} fi`}>
             Everything you need to know about AIgnyte — process, compliance, cost, and the technology.
           </p>
           <div className={styles.searchWrap}>

@@ -14,9 +14,9 @@ export default function SuccessStoriesPage() {
     <>
       <section className={styles.hero}>
         <div className={styles.heroInner}>
-          <span className="section-tag">Success Stories</span>
-          <h1>Results you can take to a board meeting</h1>
-          <p className={styles.heroSub}>
+          <span className="section-tag fi">Success Stories</span>
+          <h1 className="fi">Results you can take to a board meeting</h1>
+          <p className={`${styles.heroSub} fi`}>
             Every case below is a live production campaign — not a lab test, not a pilot, not a
             simulation. Real clients, real data, real lift.
           </p>
@@ -26,7 +26,7 @@ export default function SuccessStoriesPage() {
       <section className={styles.list}>
         <div className={styles.listInner}>
           {successStories.map((story) => (
-            <Link key={story.slug} href={`/success-stories/${story.slug}`} className={styles.card}>
+            <Link key={story.slug} href={`/success-stories/${story.slug}`} className={`${styles.card} aig-reveal`}>
               <div className={styles.cardLeft}>
                 <div className={styles.cardMeta}>
                   <span className={styles.cardBadge}>{story.badge}</span>
