@@ -1,88 +1,23 @@
 .hero {
   min-height: 100dvh;
-  background: #09080d;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% -10%, oklch(0.68 0.160 50 / 0.10) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 50% at 85% 60%, oklch(0.68 0.160 50 / 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse 100% 80% at 50% 110%, oklch(0.93 0.022 72 / 0.60) 0%, transparent 60%),
+    var(--cream);
   padding: 88px 52px 88px;
   position: relative; overflow: hidden;
   display: flex; flex-direction: column; justify-content: center;
 }
 
-/* ── Orb layer ── */
-.orbLayer {
-  position: absolute; inset: 0;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/*
-  Each orb is a solid-color circle with heavy CSS blur — the formless.xyz technique.
-  filter: blur() on a solid shape creates a much more intense, vivid glow
-  than radial-gradient to transparent.
-*/
-
-/* Orb 1 — dominant deep orange, very large, very slow */
-.orb1 {
-  position: absolute; top: 0; left: 0;
-  width: 900px; height: 900px;
-  border-radius: 50%;
-  background: #c84a10;
-  opacity: 0.55;
-  filter: blur(130px);
-  will-change: transform;
-}
-
-/* Orb 2 — amber, medium, mid-speed */
-.orb2 {
-  position: absolute; top: 0; left: 0;
-  width: 650px; height: 500px;
-  border-radius: 50%;
-  background: #e8820a;
-  opacity: 0.50;
-  filter: blur(100px);
-  will-change: transform;
-}
-
-/* Orb 3 — bright orange, tightest corona around cursor */
-.orb3 {
-  position: absolute; top: 0; left: 0;
-  width: 400px; height: 400px;
-  border-radius: 50%;
-  background: #f06020;
-  opacity: 0.45;
-  filter: blur(70px);
-  will-change: transform;
-}
-
-/* Orb 4 — golden accent, counter-orbits (moves opposite mouse)
-   creates the "two forces pulling" dynamic formless.xyz has */
-.orb4 {
-  position: absolute; top: 0; left: 0;
-  width: 560px; height: 560px;
-  border-radius: 50%;
-  background: #f5a800;
-  opacity: 0.35;
-  filter: blur(110px);
-  will-change: transform;
-}
-
-/* ── Content layer (above orbs) ── */
-.inner {
-  max-width: 1180px; margin: 0 auto;
-  position: relative; z-index: 1; width: 100%;
-}
+.inner { max-width: 1180px; margin: 0 auto; position: relative; z-index: 1; width: 100%; }
 
 .grid {
   display: grid; grid-template-columns: 1fr 460px;
   gap: 80px; align-items: center;
 }
 
-/* ── Hero text (white on dark bg) ── */
-.heroTitle {
-  color: oklch(0.97 0.01 75) !important; /* warm white — overrides global h1 var(--ink) */
-  font-weight: 600;
-  margin-bottom: 22px;
-}
-
-/* Gradient text on "Message Decisioning" */
+/* Gradient text color on "Message Decisioning" */
 .gradientWord {
   font-style: normal;
   background: linear-gradient(90deg, #f07d1e 0%, #f5b84a 100%);
@@ -93,57 +28,54 @@
 }
 
 .copy { display: flex; flex-direction: column; gap: 0; }
+.copy h1 { margin-bottom: 22px; font-weight: 600; }
 
 .sub {
   font-family: var(--font-geist, 'Geist', sans-serif);
-  font-size: 17px;
-  color: oklch(0.80 0.02 75); /* warm white, slightly dimmed */
-  line-height: 1.7;
+  font-size: 17px; color: var(--charcoal); line-height: 1.7;
   font-weight: 400; max-width: 68ch; margin-bottom: 16px;
 }
 
 .btns { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 22px; }
 
-/* ── Float animation ── */
+/* Float animation */
 @keyframes floatCard {
   0%, 100% { transform: translateY(0px); }
-  50%       { transform: translateY(-6px); }
+  50% { transform: translateY(-6px); }
 }
 
-/* ── Proof cards — white glass panels floating on dark bg ── */
+/* Proof cards */
 .proofCards { display: flex; flex-direction: column; gap: 10px; }
-
 .proofCard {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: var(--white);
+  border: 1px solid var(--border);
   border-radius: 8px; padding: 18px 22px;
   display: flex; align-items: center; gap: 16px;
-  box-shadow:
-    rgba(0, 0, 0, 0.40) 0px 4px 24px,
-    rgba(240, 100, 20, 0.08) 0px 2px 8px;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  transition: box-shadow 220ms cubic-bezier(0.23, 1, 0.32, 1),
-              border-color 180ms ease,
-              background 180ms ease;
+  box-shadow: rgba(1, 1, 32, 0.08) 0px 4px 24px, rgba(127, 60, 10, 0.06) 0px 2px 8px;
+  transition: box-shadow 220ms cubic-bezier(0.23, 1, 0.32, 1), border-color 180ms ease;
   position: relative; overflow: hidden;
   animation: floatCard 4s ease-in-out infinite;
 }
-.proofCard:nth-child(1) { animation-delay: 0s;   animation-duration: 3.8s; }
-.proofCard:nth-child(2) { animation-delay: 0.5s; animation-duration: 4.2s; }
-.proofCard:nth-child(3) { animation-delay: 1.0s; animation-duration: 4.0s; }
-.proofCard:nth-child(4) { animation-delay: 1.5s; animation-duration: 4.4s; }
-.proofCard:nth-child(5) { animation-delay: 2.0s; animation-duration: 3.9s; }
+.proofCard:nth-child(1) { animation-delay: 0s;    animation-duration: 3.8s; }
+.proofCard:nth-child(2) { animation-delay: 0.5s;  animation-duration: 4.2s; }
+.proofCard:nth-child(3) { animation-delay: 1.0s;  animation-duration: 4.0s; }
+.proofCard:nth-child(4) { animation-delay: 1.5s;  animation-duration: 4.4s; }
+.proofCard:nth-child(5) { animation-delay: 2.0s;  animation-duration: 3.9s; }
 
 @media (hover: hover) and (pointer: fine) {
   .proofCard:hover {
-    background: rgba(255, 255, 255, 0.09);
-    border-color: rgba(240, 125, 30, 0.35);
-    box-shadow:
-      rgba(0, 0, 0, 0.50) 0px 8px 40px,
-      rgba(240, 100, 20, 0.15) 0px 2px 12px;
+    box-shadow: rgba(1, 1, 32, 0.14) 0px 8px 40px, rgba(127, 60, 10, 0.10) 0px 2px 12px;
+    border-color: oklch(0.68 0.160 50 / 0.30);
     animation-play-state: paused;
   }
+  .proofCard::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(circle at 50% 50%, oklch(0.68 0.160 50 / 0.07) 0%, transparent 65%);
+    opacity: 0; transition: opacity 300ms ease;
+    pointer-events: none; border-radius: inherit;
+  }
+  .proofCard:hover::after { opacity: 1; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -153,31 +85,25 @@
 .proofNum {
   font-family: var(--font-geist, 'Geist', sans-serif);
   font-size: 44px; line-height: 0.95; min-width: 90px;
-  color: #f07d1e; font-weight: 400;
+  color: var(--orange); font-weight: 400;
   letter-spacing: -0.04em;
 }
 .proofPlus {
   font-size: 20px; vertical-align: super; line-height: 0;
   font-weight: 500; letter-spacing: 0; margin-right: 1px;
-  opacity: 0.7;
+  opacity: 0.6;
 }
 .proofInfo { flex: 1; }
-.proofMetric {
-  font-size: 13.5px; font-weight: 700;
-  color: oklch(0.95 0.01 75); /* near-white */
-  margin-bottom: 2px; letter-spacing: -0.01em;
-}
-.proofContext { font-size: 11.5px; color: oklch(0.65 0.02 75); line-height: 1.4; }
+.proofMetric { font-size: 13.5px; font-weight: 700; color: var(--ink); margin-bottom: 2px; letter-spacing: -0.01em; }
+.proofContext { font-size: 11.5px; color: var(--muted); line-height: 1.4; }
 .proofChannel {
   font-family: var(--font-geist-mono, 'Geist Mono', monospace);
   font-size: 9.5px; font-weight: 400;
-  color: #f07d1e;
-  border: 1px solid rgba(240, 125, 30, 0.30);
-  padding: 2px 8px; border-radius: 2px;
-  white-space: nowrap; letter-spacing: 0.04em;
+  color: var(--orange); border: 1px solid oklch(0.68 0.160 50 / 0.25);
+  padding: 2px 8px; border-radius: 2px; white-space: nowrap; letter-spacing: 0.04em;
 }
 
-/* ── Responsive ── */
+/* Responsive */
 @media (max-width: 900px) {
   .hero { padding: 60px 20px 60px; }
   .grid { grid-template-columns: 1fr; gap: 40px; }
