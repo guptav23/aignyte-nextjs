@@ -64,30 +64,30 @@ h3 { line-height: 1.10; letter-spacing: -0.025em; text-wrap: balance; }
 .aig-reveal {
   opacity: 1;
   transform: none;
-  transition: opacity 700ms cubic-bezier(0.23, 1, 0.32, 1), transform 700ms cubic-bezier(0.23, 1, 0.32, 1);
+  transition: opacity 500ms cubic-bezier(0.23, 1, 0.32, 1), transform 500ms cubic-bezier(0.23, 1, 0.32, 1);
 }
-.aig-reveal.aig-hidden { opacity: 0; transform: translateY(24px); }
+.aig-reveal.aig-hidden { opacity: 0; transform: translateY(10px); will-change: transform, opacity; }
 .aig-reveal:nth-child(1) { transition-delay: 0ms; }
-.aig-reveal:nth-child(2) { transition-delay: 50ms; }
-.aig-reveal:nth-child(3) { transition-delay: 100ms; }
-.aig-reveal:nth-child(4) { transition-delay: 150ms; }
-.aig-reveal:nth-child(5) { transition-delay: 200ms; }
-.aig-reveal:nth-child(6) { transition-delay: 240ms; }
+.aig-reveal:nth-child(2) { transition-delay: 40ms; }
+.aig-reveal:nth-child(3) { transition-delay: 80ms; }
+.aig-reveal:nth-child(4) { transition-delay: 120ms; }
+.aig-reveal:nth-child(5) { transition-delay: 160ms; }
+.aig-reveal:nth-child(6) { transition-delay: 200ms; }
 
 /* ── Hero fadeUp ── */
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(14px); }
+  from { opacity: 0; transform: translateY(10px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 .fi {
   opacity: 0;
-  animation: fadeUp 650ms cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  animation: fadeUp 440ms cubic-bezier(0.23, 1, 0.32, 1) forwards;
 }
-.fi:nth-child(1) { animation-delay: 80ms; }
-.fi:nth-child(2) { animation-delay: 200ms; }
-.fi:nth-child(3) { animation-delay: 340ms; }
-.fi:nth-child(4) { animation-delay: 470ms; }
-.fi:nth-child(5) { animation-delay: 590ms; }
+.fi:nth-child(1) { animation-delay: 60ms; }
+.fi:nth-child(2) { animation-delay: 160ms; }
+.fi:nth-child(3) { animation-delay: 280ms; }
+.fi:nth-child(4) { animation-delay: 390ms; }
+.fi:nth-child(5) { animation-delay: 490ms; }
 
 /* ── Pulse ── */
 @keyframes pulse {
@@ -122,7 +122,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   padding: 13px 28px; border-radius: 4px; text-decoration: none;
   display: inline-flex; align-items: center; gap: 8px;
   border: none; cursor: pointer;
-  transition: background 150ms ease, transform 120ms ease;
+  transition: background 150ms ease, transform 100ms cubic-bezier(0.23, 1, 0.32, 1);
 }
 @media (hover: hover) and (pointer: fine) {
   .btn-primary:hover { background: var(--orange-dk); }
@@ -136,7 +136,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   padding: 12px 26px; border-radius: 4px; text-decoration: none;
   border: 1.5px solid var(--border);
   display: inline-flex; align-items: center; cursor: pointer;
-  transition: border-color 150ms cubic-bezier(0.23, 1, 0.32, 1), transform 130ms cubic-bezier(0.23, 1, 0.32, 1);
+  transition: border-color 150ms cubic-bezier(0.23, 1, 0.32, 1), transform 100ms cubic-bezier(0.23, 1, 0.32, 1);
 }
 @media (hover: hover) and (pointer: fine) {
   .btn-secondary:hover { border-color: var(--charcoal); }
@@ -151,7 +151,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   padding: 12px 26px; border-radius: 4px; text-decoration: none;
   border: 1.5px solid oklch(1 0 0 / 0.22);
   display: inline-flex; align-items: center; cursor: pointer;
-  transition: border-color 150ms cubic-bezier(0.23, 1, 0.32, 1), color 150ms ease, transform 130ms cubic-bezier(0.23, 1, 0.32, 1);
+  transition: border-color 150ms cubic-bezier(0.23, 1, 0.32, 1), color 150ms ease, transform 100ms cubic-bezier(0.23, 1, 0.32, 1);
 }
 @media (hover: hover) and (pointer: fine) {
   .btn-ghost:hover { border-color: oklch(1 0 0 / 0.50); color: oklch(1 0 0 / 0.95); }

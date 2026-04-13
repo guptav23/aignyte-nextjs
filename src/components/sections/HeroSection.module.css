@@ -41,7 +41,7 @@
 /* Float animation */
 @keyframes floatCard {
   0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-7px); }
+  50% { transform: translateY(-6px); }
 }
 
 /* Proof cards */
@@ -56,11 +56,11 @@
   position: relative; overflow: hidden;
   animation: floatCard 4s ease-in-out infinite;
 }
-.proofCard:nth-child(1) { animation-delay: 0s; }
-.proofCard:nth-child(2) { animation-delay: 0.5s; }
-.proofCard:nth-child(3) { animation-delay: 1.0s; }
-.proofCard:nth-child(4) { animation-delay: 1.5s; }
-.proofCard:nth-child(5) { animation-delay: 2.0s; }
+.proofCard:nth-child(1) { animation-delay: 0s;    animation-duration: 3.8s; }
+.proofCard:nth-child(2) { animation-delay: 0.5s;  animation-duration: 4.2s; }
+.proofCard:nth-child(3) { animation-delay: 1.0s;  animation-duration: 4.0s; }
+.proofCard:nth-child(4) { animation-delay: 1.5s;  animation-duration: 4.4s; }
+.proofCard:nth-child(5) { animation-delay: 2.0s;  animation-duration: 3.9s; }
 
 @media (hover: hover) and (pointer: fine) {
   .proofCard:hover {

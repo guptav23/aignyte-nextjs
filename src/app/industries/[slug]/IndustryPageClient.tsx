@@ -46,7 +46,7 @@ export default function IndustryPageClient({ industry }: { industry: IndustryPag
             <span className="section-tag">The Problem</span>
             <h2 style={{ marginTop: 12 }}>{industry.problemHeading}</h2>
           </div>
-          <div className={styles.problemParas}>
+          <div className={`${styles.problemParas} aig-reveal`}>
             {industry.problemParas.map((para, i) => (
               <p key={i}>{para}</p>
             ))}
@@ -63,7 +63,7 @@ export default function IndustryPageClient({ industry }: { industry: IndustryPag
           </div>
           <div className={styles.useCasesGrid}>
             {industry.useCases.map((uc, i) => (
-              <div key={i} className={styles.useCaseCard}>
+              <div key={i} className={`${styles.useCaseCard} aig-reveal`}>
                 <div className={styles.useCaseNum}>{String(i + 1).padStart(2, '0')}</div>
                 <h3 className={styles.useCaseTitle}>{uc.title}</h3>
                 <p className={styles.useCaseBody}>{uc.body}</p>
@@ -82,7 +82,7 @@ export default function IndustryPageClient({ industry }: { industry: IndustryPag
           </div>
           <div className={styles.whyGrid}>
             {industry.whyPoints.map((pt, i) => (
-              <div key={i} className={styles.whyCard}>
+              <div key={i} className={`${styles.whyCard} aig-reveal`}>
                 <h3 className={styles.whyTitle}>{pt.title}</h3>
                 <p className={styles.whyBody}>{pt.body}</p>
               </div>

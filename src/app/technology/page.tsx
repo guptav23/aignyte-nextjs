@@ -97,9 +97,9 @@ export default function TechnologyPage() {
       {/* Hero */}
       <section className={styles.hero}>
         <div className={styles.heroInner}>
-          <span className="section-tag">The Technology</span>
-          <h1>Three stages. One decision per individual. Every campaign.</h1>
-          <p className={styles.heroSub}>
+          <span className="section-tag fi">The Technology</span>
+          <h1 className="fi">Three stages. One decision per individual. Every campaign.</h1>
+          <p className={`${styles.heroSub} fi`}>
             AIgnyte sits between your selection process and your execution stack. It takes your
             campaign file as input and returns one individually-reasoned creative assignment per
             person as output — automatically, every cycle.
@@ -110,7 +110,7 @@ export default function TechnologyPage() {
       {/* Core Idea */}
       <section className={styles.pillars}>
         <div className={styles.pillarsInner}>
-          <div className={styles.pillarsHeader}>
+          <div className={`${styles.pillarsHeader} aig-reveal`}>
             <span className="section-tag">The Core Idea</span>
             <h2 style={{ marginTop: 12 }}>
               You already decide <em>who</em> to reach.
@@ -164,7 +164,7 @@ export default function TechnologyPage() {
       {/* Three Stages Diagram */}
       <section className={styles.specs}>
         <div className={styles.specsInner} style={{ maxWidth: 1000 }}>
-          <div className={styles.specsHeader}>
+          <div className={`${styles.specsHeader} aig-reveal`}>
             <span className="section-tag">How It Works</span>
             <h2 style={{ marginTop: 12 }}>From creative catalog to individual decision — in three stages</h2>
             <p style={{ fontSize: 15, color: 'var(--mid)', lineHeight: 1.7, marginTop: 14 }}>
@@ -204,7 +204,7 @@ export default function TechnologyPage() {
       {/* Pillars */}
       <section className={styles.pillars}>
         <div className={styles.pillarsInner}>
-          <div className={styles.pillarsHeader}>
+          <div className={`${styles.pillarsHeader} aig-reveal`}>
             <span className="section-tag">Core technology</span>
             <h2>Four pillars of Message Decisioning</h2>
           </div>
@@ -227,7 +227,7 @@ export default function TechnologyPage() {
       {/* Specs */}
       <section className={styles.specs}>
         <div className={styles.specsInner}>
-          <div className={styles.specsHeader}>
+          <div className={`${styles.specsHeader} aig-reveal`}>
             <span className="section-tag">Specs</span>
             <h2>What integration actually looks like</h2>
           </div>
