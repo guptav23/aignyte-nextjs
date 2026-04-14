@@ -120,8 +120,16 @@
   width: 80px; flex-shrink: 0; text-align: right;
 }
 .barTrack { flex: 1; height: 28px; background: var(--cream); border-radius: 4px; overflow: hidden; border: 1px solid var(--border); }
-.barFillBefore { height: 100%; background: var(--muted); border-radius: 4px; }
-.barFillAfter { height: 100%; background: var(--orange); border-radius: 4px; }
+.barFillBefore {
+  height: 100%; background: var(--muted); border-radius: 4px;
+  width: 0;
+  transition: width 900ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+.barFillAfter {
+  height: 100%; background: var(--orange); border-radius: 4px;
+  width: 0;
+  transition: width 1100ms cubic-bezier(0.23, 1, 0.32, 1) 180ms;
+}
 .barValue { font-family: var(--font-geist, 'Geist', sans-serif); font-size: 18px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; width: 48px; }
 
 .liftBadge {

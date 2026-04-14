@@ -24,13 +24,12 @@ interface FormState {
   company: string;
   role: string;
   email: string;
-  challenge: string;
   source: string;
 }
 
 const INITIAL_STATE: FormState = {
   firstName: '', lastName: '', company: '', role: '',
-  email: '', challenge: '', source: '',
+  email: '', source: '',
 };
 
 export default function LetsTalkModal() {
@@ -82,7 +81,6 @@ export default function LetsTalkModal() {
     } else if (!isWorkEmail(form.email)) {
       newErrors.email = 'Please use your work email address';
     }
-    if (!form.challenge.trim()) newErrors.challenge = 'Required';
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   }
@@ -199,14 +197,6 @@ export default function LetsTalkModal() {
                   className={`${styles.input} ${errors.email ? styles.err : ''}`}
                   type="email" autoComplete="email" placeholder="jane@company.com"
                   value={form.email} onChange={update('email')}
-                />
-              </Field>
-
-              <Field label="What challenge are you trying to solve?" required error={errors.challenge}>
-                <textarea
-                  className={`${styles.input} ${styles.textarea} ${errors.challenge ? styles.err : ''}`}
-                  placeholder="Tell us about your direct marketing goals or challenges…"
-                  value={form.challenge} onChange={update('challenge')}
                 />
               </Field>
 

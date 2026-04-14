@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { useRef, useEffect, useState } from 'react';
 import { useModal } from '@/context/ModalContext';
 import type { SuccessStory } from '@/data/successStories';
 import styles from './SuccessStoryPage.module.css';
@@ -11,6 +12,24 @@ function Html({ text }: { text: string }) {
 
 export default function SuccessStoryClient({ story }: { story: SuccessStory }) {
   const { openLetsTalk } = useModal();
+  const barChartRef = useRef<HTMLDivElement>(null);
+  const [barsVisible, setBarsVisible] = useState(false);
+
+  useEffect(() => {
+    const el = barChartRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setBarsVisible(true);
+          obs.disconnect();
+        }
+      },
+      { threshold: 0.4 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
 
   return (
     <>
@@ -95,19 +114,19 @@ export default function SuccessStoryClient({ story }: { story: SuccessStory }) {
           <span className={styles.sectionLabel}>Results</span>
           <h2 className={styles.resultsH2}>{story.resultsHeadline}</h2>
 
-          <div className={styles.barChart}>
+          <div className={styles.barChart} ref={barChartRef}>
             <div className={styles.barLabel}>{story.resultBarLabel}</div>
             <div className={styles.barRow}>
               <span className={styles.barRowLabel}>{story.resultBarBefore.label}</span>
               <div className={styles.barTrack}>
-                <div className={styles.barFillBefore} style={{ width: story.resultBarBefore.width }} />
+                <div className={styles.barFillBefore} style={{ width: barsVisible ? story.resultBarBefore.width : '0%' }} />
               </div>
               <span className={styles.barValue}>{story.resultBarBefore.text}</span>
             </div>
             <div className={styles.barRow}>
               <span className={styles.barRowLabel}>{story.resultBarAfter.label}</span>
               <div className={styles.barTrack}>
-                <div className={styles.barFillAfter} style={{ width: story.resultBarAfter.width }} />
+                <div className={styles.barFillAfter} style={{ width: barsVisible ? story.resultBarAfter.width : '0%' }} />
               </div>
               <span className={styles.barValue}>{story.resultBarAfter.text}</span>
             </div>

@@ -102,8 +102,8 @@ export const successStories: SuccessStory[] = [
 
     resultsHeadline: 'A 50%+ increase in response rate — across 10.8 million pieces, 10 campaigns.',
     resultBarLabel: 'Donation response rate',
-    resultBarBefore: { label: 'Baseline', width: '38%', text: '2.4%' },
-    resultBarAfter: { label: 'With aignyte', width: '55%', text: '3.63%' },
+    resultBarBefore: { label: 'Baseline', width: '40%', text: '2.4%' },
+    resultBarAfter: { label: 'With aignyte', width: '60%', text: '3.63%' },
     resultLiftBadge: '↑ 50%+ lift in response rate',
     whatDroveLabel: 'What drove the lift',
     whatDroveItems: [
