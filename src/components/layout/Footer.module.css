@@ -24,9 +24,9 @@
 .brandLogo em { font-style: italic; color: var(--orange); }
 .logoImg {
   display: block;
-  height: 80px;
+  height: 56px;
   width: auto;
-  max-width: 320px;
+  max-width: 260px;
   object-fit: contain;
   object-position: left center;
   /* Color logo — no filter, natural colors on dark footer */
