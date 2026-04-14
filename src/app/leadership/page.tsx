@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import styles from './LeadershipPage.module.css';
+import LetsTalkBtn from '@/components/LetsTalkBtn';
 
 export const metadata: Metadata = {
   title: 'Leadership — AIgnyte Message Decisioning Platform',
@@ -175,6 +176,7 @@ export default function LeadershipPage() {
             with our team. We&apos;ll walk through your setup and tell you honestly what lift looks
             like for your vertical.
           </p>
+          <LetsTalkBtn />
         </div>
       </section>
     </>
