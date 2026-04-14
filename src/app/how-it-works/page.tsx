@@ -161,30 +161,28 @@ export default function HowItWorksPage() {
       <section className={styles.phases}>
         <div className={styles.phasesInner}>
           {phases.map((p, i) => (
-            <div key={p.phase} className={styles.phaseSlot}>
-              <div className={`${styles.phaseCard} ${i === 0 ? styles.phaseCard1 : styles.phaseCard2}`}>
-                <div className={styles.phaseHeader}>
-                  <div>
-                    <span className={styles.phaseNum}>{p.phase}</span>
-                    <h2 className={styles.phaseName}>{p.name}</h2>
-                  </div>
-                  <span className={styles.phaseTag}>{p.tag}</span>
+            <div key={p.phase} className={`${styles.phaseCard} ${i === 0 ? styles.phaseCard1 : styles.phaseCard2}`}>
+              <div className={styles.phaseHeader}>
+                <div>
+                  <span className={styles.phaseNum}>{p.phase}</span>
+                  <h2 className={styles.phaseName}>{p.name}</h2>
                 </div>
-                <div className={styles.phaseSteps}>
-                  {p.steps.map((s) => (
-                    <div key={s.n} className={styles.step}>
-                      <div className={styles.stepN}>{s.n}</div>
-                      <div>
-                        <div className={styles.stepTitle}>{s.title}</div>
-                        <p className={styles.stepBody}>{s.body}</p>
-                      </div>
+                <span className={styles.phaseTag}>{p.tag}</span>
+              </div>
+              <div className={styles.phaseSteps}>
+                {p.steps.map((s) => (
+                  <div key={s.n} className={styles.step}>
+                    <div className={styles.stepN}>{s.n}</div>
+                    <div>
+                      <div className={styles.stepTitle}>{s.title}</div>
+                      <p className={styles.stepBody}>{s.body}</p>
                     </div>
-                  ))}
-                </div>
-                <div className={`${styles.outcome} ${p.outcomeClass}`}>
-                  <span className={styles.outcomeLabel}>Outcome</span>
-                  <p className={styles.outcomeText}>{p.outcome}</p>
-                </div>
+                  </div>
+                ))}
+              </div>
+              <div className={`${styles.outcome} ${p.outcomeClass}`}>
+                <span className={styles.outcomeLabel}>Outcome</span>
+                <p className={styles.outcomeText}>{p.outcome}</p>
               </div>
             </div>
           ))}
@@ -196,7 +194,7 @@ export default function HowItWorksPage() {
         <div className={styles.integrationInner}>
           <span className="section-tag light aig-reveal">Where AIgnyte Fits</span>
           <h2 className={`${styles.integrationH2} aig-reveal`}>One new step. Everything else stays the same.</h2>
-          <p style={{ color: 'oklch(1 0 0 / 0.45)', fontSize: 16, lineHeight: 1.7, marginBottom: 40, maxWidth: 660 }}>
+          <p style={{ color: 'oklch(1 0 0 / 0.45)', fontSize: 16, lineHeight: 1.7, margin: '0 auto 40px', maxWidth: 660, textAlign: 'center' }}>
             AIgnyte sits between selection and execution — receiving your campaign file and
             returning a matched creative assignment. Your targeting models, CRM, vendors, and data
             infrastructure are all untouched.

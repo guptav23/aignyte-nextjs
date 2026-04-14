@@ -17,38 +17,35 @@
 }
 .phasesInner {
   max-width: 1000px; margin: 0 auto;
-  display: flex; flex-direction: column;
+  /* Block layout (no flex) — required for position:sticky to work correctly */
   padding-bottom: 88px;
-}
-
-/* Each slot provides the scroll distance for its card to stick */
-.phaseSlot {
-  position: relative;
-}
-.phaseSlot:first-child {
-  /* Extra space: as you scroll through this, Card 2 slides up over Card 1 */
-  padding-bottom: 240px;
 }
 
 .phaseCard {
   border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
   box-shadow: rgba(1, 1, 32, 0.10) 0px 8px 40px;
   background: var(--white);
+  /* Both cards are sticky siblings inside phasesInner.
+     The containing block for sticky is phasesInner (spans the full height of both cards).
+     Card 1 sticks early and stays stuck while Card 2 slides over it from below.
+     The 200px margin-bottom is the scroll distance while Card 1 is stuck
+     before Card 2 starts entering the viewport. */
 }
 
-/* Card 1 — sticks first, sits below Card 2 in z-order */
+/* Card 1 — sticks at 82px, stays below Card 2 */
 .phaseCard1 {
   position: sticky;
   top: 82px;
   z-index: 1;
+  margin-bottom: 200px;
 }
 
-/* Card 2 — slides up over Card 1, sticks 22px below Card 1's top
-   so Card 1's header peeks out, showing the stack */
+/* Card 2 — sticks 24px below Card 1's top so Card 1 header peeks out */
 .phaseCard2 {
   position: sticky;
-  top: 104px;
+  top: 106px;
   z-index: 2;
+  box-shadow: rgba(1, 1, 32, 0.18) 0px 16px 60px;
 }
 .phaseHeader {
   display: flex; align-items: flex-end; justify-content: space-between; gap: 20px;
@@ -192,7 +189,7 @@
 @media (max-width: 900px) {
   .hero { padding: 100px 20px 60px; }
   .phases { padding: 60px 20px 0; }
-  .phaseSlot:first-child { padding-bottom: 120px; }
+  .phaseCard1 { margin-bottom: 80px; }
   .phaseHeader { padding: 20px; }
   .phaseSteps { padding: 0 20px; }
   .outcome { margin: 0 20px 20px; }

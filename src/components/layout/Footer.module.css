@@ -24,13 +24,12 @@
 .brandLogo em { font-style: italic; color: var(--orange); }
 .logoImg {
   display: block;
-  height: 56px;
+  height: 48px;
   width: auto;
-  max-width: 220px;
+  max-width: 200px;
   object-fit: contain;
   object-position: left center;
-  filter: brightness(0) invert(1);  /* makes dark logo white on dark footer */
-  opacity: 0.90;
+  /* Color logo — no filter, natural colors on dark footer */
 }
 .brand p {
   font-size: 13px;
