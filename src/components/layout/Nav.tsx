@@ -10,28 +10,33 @@ import styles from './Nav.module.css';
 
 export default function Nav() {
   const { openLetsTalk } = useModal();
-  const [drawerOpen, setDrawerOpen] = useState(false);
-  const [industriesOpen, setIndustriesOpen] = useState(false);
-  const [storiesOpen, setStoriesOpen] = useState(false);
+  const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
+  const [mobileIndustriesOpen, setMobileIndustriesOpen] = useState(false);
+  const [mobileStoriesOpen, setMobileStoriesOpen] = useState(false);
+  const [desktopIndustriesOpen, setDesktopIndustriesOpen] = useState(false);
+  const [desktopStoriesOpen, setDesktopStoriesOpen] = useState(false);
   const pathname = usePathname();
 
-  // Close drawer on route change
+  // Close everything on route change
   useEffect(() => {
-    setDrawerOpen(false);
+    setMobileDrawerOpen(false);
+    setDesktopIndustriesOpen(false);
+    setDesktopStoriesOpen(false);
   }, [pathname]);
 
-  // Lock body scroll when drawer is open
+  // Lock body scroll when mobile drawer is open
   useEffect(() => {
-    document.body.style.overflow = drawerOpen ? 'hidden' : '';
+    document.body.style.overflow = mobileDrawerOpen ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
-  }, [drawerOpen]);
+  }, [mobileDrawerOpen]);
 
   function isActive(href: string) {
     return pathname === href || pathname.startsWith(href + '/');
   }
 
-  function closeMegaMenu(e: React.MouseEvent) {
-    (e.currentTarget.closest('li[tabindex]') as HTMLElement)?.blur();
+  function closeDesktopMenus() {
+    setDesktopIndustriesOpen(false);
+    setDesktopStoriesOpen(false);
   }
 
   return (
@@ -55,21 +60,25 @@ export default function Nav() {
           </li>
 
           {/* Industries dropdown */}
-          <li className={styles.dropdownTrigger} tabIndex={0}>
+          <li
+            className={styles.dropdownTrigger}
+            onMouseEnter={() => setDesktopIndustriesOpen(true)}
+            onMouseLeave={() => setDesktopIndustriesOpen(false)}
+          >
             <Link href="/industries" className={`${styles.link} ${styles.chevronLink} ${isActive('/industries') ? styles.active : ''}`}>
               Industries
-              <svg className={styles.chevron} viewBox="0 0 14 14" fill="none">
+              <svg className={`${styles.chevron} ${desktopIndustriesOpen ? styles.chevronOpen : ''}`} viewBox="0 0 14 14" fill="none">
                 <path d="M3 5L7 9L11 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </Link>
-            <div className={`${styles.megaMenu} ${styles.megaMenuIndustries}`}>
+            <div className={`${styles.megaMenu} ${styles.megaMenuIndustries} ${desktopIndustriesOpen ? styles.megaMenuOpen : ''}`}>
               <div className={styles.megaHeader}>
                 <span className={styles.megaHeaderLabel}>Industries</span>
-                <Link className={styles.megaHeaderLink} href="/industries" onClick={closeMegaMenu}>View all →</Link>
+                <Link className={styles.megaHeaderLink} href="/industries" onClick={closeDesktopMenus}>View all →</Link>
               </div>
               <div className={styles.megaGrid}>
                 {industries.map((ind) => (
-                  <Link key={ind.href} className={styles.megaItem} href={ind.href} onClick={closeMegaMenu}>
+                  <Link key={ind.href} className={styles.megaItem} href={ind.href} onClick={closeDesktopMenus}>
                     <div className={styles.megaItemIcon}>{ind.icon}</div>
                     <div className={styles.megaItemText}>
                       <div className={styles.megaItemName}>
@@ -87,27 +96,31 @@ export default function Nav() {
                   Don&apos;t see your vertical?{' '}
                   <strong>AIgnyte works wherever direct marketing response rates matter.</strong>
                 </span>
-                <button className={styles.megaFooterCta} onClick={openLetsTalk}>Let&apos;s Talk</button>
+                <button className={styles.megaFooterCta} onClick={() => { closeDesktopMenus(); openLetsTalk(); }}>Let&apos;s Talk</button>
               </div>
             </div>
           </li>
 
           {/* Success Stories dropdown */}
-          <li className={styles.dropdownTrigger} tabIndex={0}>
+          <li
+            className={styles.dropdownTrigger}
+            onMouseEnter={() => setDesktopStoriesOpen(true)}
+            onMouseLeave={() => setDesktopStoriesOpen(false)}
+          >
             <Link href="/success-stories" className={`${styles.link} ${styles.chevronLink} ${isActive('/success-stories') ? styles.active : ''}`}>
               Success Stories
-              <svg className={styles.chevron} viewBox="0 0 14 14" fill="none">
+              <svg className={`${styles.chevron} ${desktopStoriesOpen ? styles.chevronOpen : ''}`} viewBox="0 0 14 14" fill="none">
                 <path d="M3 5L7 9L11 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </Link>
-            <div className={`${styles.megaMenu} ${styles.megaMenuStories}`}>
+            <div className={`${styles.megaMenu} ${styles.megaMenuStories} ${desktopStoriesOpen ? styles.megaMenuOpen : ''}`}>
               <div className={styles.megaHeader}>
                 <span className={styles.megaHeaderLabel}>Success Stories</span>
-                <Link className={styles.megaHeaderLink} href="/success-stories" onClick={closeMegaMenu}>View all →</Link>
+                <Link className={styles.megaHeaderLink} href="/success-stories" onClick={closeDesktopMenus}>View all →</Link>
               </div>
               <div className={styles.megaStories}>
                 {caseStudies.map((cs) => (
-                  <Link key={cs.href} className={styles.storyItem} href={cs.href} onClick={closeMegaMenu}>
+                  <Link key={cs.href} className={styles.storyItem} href={cs.href} onClick={closeDesktopMenus}>
                     <div className={styles.storyStat}>
                       <div className={styles.storyStatNum}>{cs.stat}</div>
                       <div className={styles.storyStatMetric}>{cs.metricLabel}</div>
@@ -128,7 +141,7 @@ export default function Nav() {
                 <span className={styles.megaFooterText}>
                   Results on <strong>existing creatives, existing data, existing processes</strong>.
                 </span>
-                <button className={styles.megaFooterCta} onClick={openLetsTalk}>Let&apos;s Talk</button>
+                <button className={styles.megaFooterCta} onClick={() => { closeDesktopMenus(); openLetsTalk(); }}>Let&apos;s Talk</button>
               </div>
             </div>
           </li>
@@ -143,38 +156,38 @@ export default function Nav() {
         {/* Hamburger */}
         <button
           className={styles.hamburger}
-          aria-label={drawerOpen ? 'Close menu' : 'Open menu'}
-          aria-expanded={drawerOpen}
-          onClick={() => setDrawerOpen(!drawerOpen)}
+          aria-label={mobileDrawerOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={mobileDrawerOpen}
+          onClick={() => setMobileDrawerOpen(!mobileDrawerOpen)}
         >
-          <span className={drawerOpen ? styles.barOpen1 : ''} />
-          <span className={drawerOpen ? styles.barOpen2 : ''} />
-          <span className={drawerOpen ? styles.barOpen3 : ''} />
+          <span className={mobileDrawerOpen ? styles.barOpen1 : ''} />
+          <span className={mobileDrawerOpen ? styles.barOpen2 : ''} />
+          <span className={mobileDrawerOpen ? styles.barOpen3 : ''} />
         </button>
       </nav>
 
       {/* Mobile overlay */}
-      {drawerOpen && (
-        <div className={styles.overlay} aria-hidden onClick={() => setDrawerOpen(false)} />
+      {mobileDrawerOpen && (
+        <div className={styles.overlay} aria-hidden onClick={() => setMobileDrawerOpen(false)} />
       )}
 
       {/* Mobile drawer */}
-      <div className={`${styles.drawer} ${drawerOpen ? styles.drawerOpen : ''}`} aria-hidden={!drawerOpen}>
+      <div className={`${styles.drawer} ${mobileDrawerOpen ? styles.drawerOpen : ''}`} aria-hidden={!mobileDrawerOpen}>
         <div className={styles.drawerHeader}>Menu</div>
         <Link className={styles.drawerLink} href="/how-it-works">How It Works <span>›</span></Link>
         <Link className={styles.drawerLink} href="/technology">Technology <span>›</span></Link>
 
         <button
           className={styles.drawerSubLabel}
-          onClick={() => setIndustriesOpen(!industriesOpen)}
-          aria-expanded={industriesOpen}
+          onClick={() => setMobileIndustriesOpen(!mobileIndustriesOpen)}
+          aria-expanded={mobileIndustriesOpen}
         >
           Industries
-          <svg className={`${styles.drawerChevron} ${industriesOpen ? styles.drawerChevronOpen : ''}`} viewBox="0 0 14 14" fill="none">
+          <svg className={`${styles.drawerChevron} ${mobileIndustriesOpen ? styles.drawerChevronOpen : ''}`} viewBox="0 0 14 14" fill="none">
             <path d="M3 5L7 9L11 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </button>
-        <div className={`${styles.drawerSubPanel} ${industriesOpen ? styles.drawerSubPanelOpen : ''}`}>
+        <div className={`${styles.drawerSubPanel} ${mobileIndustriesOpen ? styles.drawerSubPanelOpen : ''}`}>
           {industries.map((ind) => (
             <Link key={ind.href} className={styles.drawerSubItem} href={ind.href}>
               {ind.icon} {ind.name}
@@ -184,15 +197,15 @@ export default function Nav() {
 
         <button
           className={styles.drawerSubLabel}
-          onClick={() => setStoriesOpen(!storiesOpen)}
-          aria-expanded={storiesOpen}
+          onClick={() => setMobileStoriesOpen(!mobileStoriesOpen)}
+          aria-expanded={mobileStoriesOpen}
         >
           Success Stories
-          <svg className={`${styles.drawerChevron} ${storiesOpen ? styles.drawerChevronOpen : ''}`} viewBox="0 0 14 14" fill="none">
+          <svg className={`${styles.drawerChevron} ${mobileStoriesOpen ? styles.drawerChevronOpen : ''}`} viewBox="0 0 14 14" fill="none">
             <path d="M3 5L7 9L11 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </button>
-        <div className={`${styles.drawerSubPanel} ${storiesOpen ? styles.drawerSubPanelOpen : ''}`}>
+        <div className={`${styles.drawerSubPanel} ${mobileStoriesOpen ? styles.drawerSubPanelOpen : ''}`}>
           {caseStudies.map((cs) => (
             <Link key={cs.href} className={styles.drawerStoryItem} href={cs.href}>
               <div className={styles.drawerStoryStat}>{cs.stat}</div>
@@ -208,7 +221,7 @@ export default function Nav() {
         <Link className={styles.drawerLink} href="/faq">FAQs <span>›</span></Link>
         <Link className={styles.drawerLink} href="/leadership">Company <span>›</span></Link>
         <div className={styles.drawerCtaWrap}>
-          <button className={styles.drawerCta} onClick={() => { openLetsTalk(); setDrawerOpen(false); }}>
+          <button className={styles.drawerCta} onClick={() => { openLetsTalk(); setMobileDrawerOpen(false); }}>
             Let&apos;s Talk
           </button>
         </div>

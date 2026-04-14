@@ -66,8 +66,7 @@
 
 /* Dropdown trigger */
 .dropdownTrigger { position: relative; }
-.dropdownTrigger:hover .chevron,
-.dropdownTrigger:focus-within .chevron { transform: rotate(180deg); opacity: 0.80; }
+.chevronOpen { transform: rotate(180deg) !important; opacity: 0.80; }
 
 /* Mega menu */
 .megaMenu {
@@ -83,8 +82,7 @@
 .megaMenu::before {
   content: ''; position: absolute; top: -12px; left: 0; right: 0; height: 12px;
 }
-.dropdownTrigger:hover .megaMenu,
-.dropdownTrigger:focus-within .megaMenu {
+.megaMenuOpen {
   opacity: 1; pointer-events: all; transform: translateX(-50%) translateY(0);
 }
 .megaMenuIndustries { width: 820px; }
