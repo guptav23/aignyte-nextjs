@@ -12,7 +12,7 @@ const stages = [
     name: 'Genetic Signature',
     desc: (
       <>
-        Every creative decoded into <strong>000s of elements</strong> — the precise mix of
+        Every creative decoded into <strong>thousands of elements</strong> — the precise mix of
         emotional cues, value propositions, product terms, and creative elements. Done once.
         Reused every cycle.
       </>
