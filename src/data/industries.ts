@@ -7,8 +7,6 @@ export interface IndustryPage {
   name: string;
   heroTagline: string;
   sector: string;
-  heroStat: string;
-  heroStatLabel: string;
   heroSub: string;
   // Problem section
   problemHeading: string;
@@ -30,8 +28,6 @@ export const industryPages: IndustryPage[] = [
     name: 'Credit Cards',
     heroTagline: 'The right card offer for every individual — at every stage',
     sector: 'Financial Services',
-    heroStat: '60%+',
-    heroStatLabel: 'Response Rate Lift',
     heroSub: 'Acquisition, activation, and retention — every lifecycle stage individually matched.',
     description: 'Credit card direct mail depends on matching the right offer framing to each prospect. AIgnyte analyses your creative components and individually assigns the variant most likely to convert each prospect in your mailing list.',
     problemHeading: 'One message per segment — but hundreds of thousands of very different people within each',
@@ -70,8 +66,6 @@ export const industryPages: IndustryPage[] = [
     name: 'Personal Loans',
     heroTagline: 'Match each borrower to the offer framing that fits their situation',
     sector: 'Financial Services',
-    heroStat: '60%+',
-    heroStatLabel: 'Response Rate Lift',
     heroSub: 'Match each borrower to the offer framing that fits their situation.',
     description: 'Personal loan campaigns live and die by how well the offer matches each prospect\'s immediate financial situation. AIgnyte optimises across loan amount, rate framing, term options, and purpose messaging to drive the highest response for every individual.',
     problemHeading: 'One message per segment — but very different borrowers within each',
@@ -110,8 +104,6 @@ export const industryPages: IndustryPage[] = [
     name: 'Mortgage & Home Equity',
     heroTagline: 'The right mortgage message for every homeowner and prospect',
     sector: 'Financial Services',
-    heroStat: '60%+',
-    heroStatLabel: 'Response Rate Lift',
     heroSub: 'Purchase, refinance, and HELOC — the right message for every homeowner.',
     description: 'Mortgage marketing requires precision. Rate sensitivity, LTV considerations, and life stage signals all determine which message resonates. AIgnyte makes individual-level decisions across your entire campaign file.',
     problemHeading: 'One message per segment — but every borrower\'s situation is different',
@@ -150,8 +142,6 @@ export const industryPages: IndustryPage[] = [
     name: 'Retail Banking',
     heroTagline: 'The right banking message for every individual — at every stage of the relationship',
     sector: 'Financial Services',
-    heroStat: '50%+',
-    heroStatLabel: 'Response Rate Lift',
     heroSub: 'Acquisition, onboarding, and relationship deepening at the individual level.',
     description: 'Checking account acquisition, savings products, and cross-sell campaigns all depend on matching the offer to the prospect\'s relationship with money. AIgnyte optimises your creative palette for each individual.',
     problemHeading: 'One message per segment — but very different customers and prospects within each',
@@ -190,8 +180,6 @@ export const industryPages: IndustryPage[] = [
     name: 'Insurance',
     heroTagline: 'The right insurance message for every prospect and policyholder',
     sector: 'Insurance',
-    heroStat: '60%+',
-    heroStatLabel: 'Response Rate Lift',
     heroSub: 'Policy acquisition and renewal — matched to each prospect\'s coverage motivation.',
     description: 'Insurance messaging is highly personal — the right message depends on whether a prospect values price, coverage breadth, brand trust, or claims simplicity. AIgnyte learns which framing drives response for each individual.',
     problemHeading: 'One message per segment — but very different motivations and risk profiles within each',
@@ -230,8 +218,6 @@ export const industryPages: IndustryPage[] = [
     name: 'Non-Profit',
     heroTagline: 'The right appeal for every donor and prospect, individually matched',
     sector: 'Non-Profit',
-    heroStat: '+50%',
-    heroStatLabel: 'Donor Response Rate',
     heroSub: '50%+ proven lift in donor response rates — same appeals, smarter matching.',
     description: 'Donor acquisition and retention in direct mail is highly sensitive to which appeal resonates with each individual. AIgnyte has demonstrated 50%+ lifts in donor response by matching each donor to the emotional and rational appeal that aligns with their giving history.',
     problemHeading: 'One message per segment — but very different donors within each',
@@ -270,8 +256,6 @@ export const industryPages: IndustryPage[] = [
     name: 'Collections',
     heroTagline: 'The right outreach for every delinquent account — individually matched',
     sector: 'Financial Services',
-    heroStat: '60%+',
-    heroStatLabel: 'Response Rate Lift',
     heroSub: 'Individually-matched outreach that improves contact and resolution rates.',
     description: 'Collections outreach effectiveness depends on matching the right message tone and offer structure to each debtor\'s situation. AIgnyte optimises across settlement framing, payment plans, and communication style to maximise contact and resolution rates.',
     problemHeading: 'One message per bucket — but very different accounts within each',
@@ -310,8 +294,6 @@ export const industryPages: IndustryPage[] = [
     name: 'Telecom & Cable',
     heroTagline: 'The right message for every subscriber — acquisition, upsell, and churn prevention',
     sector: 'Telecom',
-    heroStat: '60%+',
-    heroStatLabel: 'Response Rate Lift',
     heroSub: 'Acquisition, upsell, and churn prevention — message-matched to each subscriber.',
     description: 'Telecom campaigns require matching each prospect or customer to the right bundle, speed tier, or promotional offer. AIgnyte learns which message framing drives response for each individual.',
     problemHeading: 'One message per segment — but very different households within each',
@@ -350,8 +332,6 @@ export const industryPages: IndustryPage[] = [
     name: 'Healthcare & Medicare',
     heroTagline: 'The right message for every patient and member — individually matched',
     sector: 'Healthcare',
-    heroStat: '+70%',
-    heroStatLabel: 'Email Click-Through Rate',
     heroSub: 'Patient and member engagement — individually relevant content, every send.',
     description: 'Healthcare marketing must navigate both regulatory constraints and personal relevance. AIgnyte has demonstrated 70% lifts in email CTR for large hospital systems by individually matching patients to the content and service lines most relevant to their profile.',
     problemHeading: 'One message per segment — but very different health situations and priorities within each',
@@ -390,8 +370,6 @@ export const industryPages: IndustryPage[] = [
     name: 'D2C & E-Commerce',
     heroTagline: 'The right message for every customer — acquisition, retention, and win-back',
     sector: 'Retail',
-    heroStat: '1.4x',
-    heroStatLabel: 'Response Rate',
     heroSub: 'Acquisition, retention, and win-back — matched to purchase behaviour.',
     description: 'D2C and e-commerce direct mail performance depends on matching promotional messaging — discount depth, product category, offer urgency — to individual purchase patterns. AIgnyte optimises across your creative variants to maximise response for every person in your file.',
     problemHeading: 'One message per segment — but enormously diverse individuals within each',
