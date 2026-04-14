@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
@@ -15,6 +15,7 @@ export default function Nav() {
   const [mobileStoriesOpen, setMobileStoriesOpen] = useState(false);
   const [desktopIndustriesOpen, setDesktopIndustriesOpen] = useState(false);
   const [desktopStoriesOpen, setDesktopStoriesOpen] = useState(false);
+  const closeTimeRef = useRef(0);
   const pathname = usePathname();
 
   // Close everything on route change
@@ -37,6 +38,11 @@ export default function Nav() {
   function closeDesktopMenus() {
     setDesktopIndustriesOpen(false);
     setDesktopStoriesOpen(false);
+    closeTimeRef.current = Date.now();
+  }
+
+  function canOpen() {
+    return Date.now() - closeTimeRef.current > 400;
   }
 
   return (
@@ -62,7 +68,7 @@ export default function Nav() {
           {/* Industries dropdown */}
           <li
             className={styles.dropdownTrigger}
-            onMouseEnter={() => setDesktopIndustriesOpen(true)}
+            onMouseEnter={() => { if (canOpen()) setDesktopIndustriesOpen(true); }}
             onMouseLeave={() => setDesktopIndustriesOpen(false)}
           >
             <Link href="/industries" className={`${styles.link} ${styles.chevronLink} ${isActive('/industries') ? styles.active : ''}`}>
@@ -104,7 +110,7 @@ export default function Nav() {
           {/* Success Stories dropdown */}
           <li
             className={styles.dropdownTrigger}
-            onMouseEnter={() => setDesktopStoriesOpen(true)}
+            onMouseEnter={() => { if (canOpen()) setDesktopStoriesOpen(true); }}
             onMouseLeave={() => setDesktopStoriesOpen(false)}
           >
             <Link href="/success-stories" className={`${styles.link} ${styles.chevronLink} ${isActive('/success-stories') ? styles.active : ''}`}>
