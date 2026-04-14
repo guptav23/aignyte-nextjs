@@ -135,7 +135,7 @@ export const successStories: SuccessStory[] = [
     results: [
       { num: '50%+', label: 'Response rate lift', note: 'vs. control / prior send' },
       { num: '10.8M', label: 'Pieces processed', note: 'Across 10 campaigns' },
-      { num: '0', label: 'New creatives required', note: 'Existing catalogue only' },
+      { num: '0', label: 'New creatives required', note: 'Existing catalog only' },
     ],
     quote: {
       text: 'We had the creative. We had the data. We just didn\'t have a way to connect them at the individual level. AIgnyte did that.',
@@ -178,7 +178,7 @@ export const successStories: SuccessStory[] = [
     challengeH2: 'The right question was being overlooked.',
     challengeParas: [
       'This Fortune 10 retailer ran extensive direct mail campaigns — large files, tested offers, optimised targeting. The existing approach focused on a well-established question: <em>who</em> is likely to respond? Response models, selection criteria, and segment-level targeting were all built around that framing.',
-      'What wasn\'t being asked — and what no existing system could answer — was a different question: <em>what will stimulate this specific prospect to respond?</em> The retailer had a deep offer catalogue. Multiple product combinations, price points, promotional structures, and message framings were all in play. But every prospect in the file received the same offer, regardless of which of the thousands of possible combinations was most likely to move them.',
+      'What wasn\'t being asked — and what no existing system could answer — was a different question: <em>what will stimulate this specific prospect to respond?</em> The retailer had a deep offer catalog. Multiple product combinations, price points, promotional structures, and message framings were all in play. But every prospect in the file received the same offer, regardless of which of the thousands of possible combinations was most likely to move them.',
       'The untapped value wasn\'t in the targeting. It was in the offer matching. And it was large.',
     ],
     challengeCards: [
@@ -190,7 +190,7 @@ export const successStories: SuccessStory[] = [
       },
       {
         icon: '🎨',
-        title: 'Deep offer catalogue',
+        title: 'Deep offer catalog',
         body: 'The retailer had a rich set of product combinations, promotional structures, and creative elements — resulting in 4,000+ possible offer combinations. No manual process could match these to individuals at scale.',
         val: '4,000+ combinations',
       },
@@ -203,12 +203,12 @@ export const successStories: SuccessStory[] = [
     ],
 
     noNewTitle: 'No new creatives. No new data. No IT project.',
-    noNewBody: 'AIgnyte delivered transformative results entirely within the client\'s existing constraints — using the offer catalogue already in production, the existing campaign history, and the available prospect data. No new creative development was required. No new data sources were needed. No changes were made to the client\'s existing execution stack.',
+    noNewBody: 'AIgnyte delivered transformative results entirely within the client\'s existing constraints — using the offer catalog already in production, the existing campaign history, and the available prospect data. No new creative development was required. No new data sources were needed. No changes were made to the client\'s existing execution stack.',
 
     approachH2: 'Three stages. 4,000+ combinations. Every individual.',
-    approachPara: 'AIgnyte\'s standard three-stage methodology: every offer combination in the retailer\'s catalogue encoded into a Genetic Signature; at campaign time, a fresh Preference Profile derived for every prospect — i.e. how will each offer element influence this individual to respond or not, inferred from their own attributes and how others like them have responded and not responded before; then each prospect matched to the highest-scoring offer from 4,000+ possible combinations. One individually-reasoned offer decision per person, every campaign cycle. Output delivered in the client\'s existing file format — no changes to their execution stack.',
+    approachPara: 'AIgnyte\'s standard three-stage methodology: every offer combination in the retailer\'s catalog encoded into a Genetic Signature; at campaign time, a fresh Preference Profile derived for every prospect — i.e. how will each offer element influence this individual to respond or not, inferred from their own attributes and how others like them have responded and not responded before; then each prospect matched to the highest-scoring offer from 4,000+ possible combinations. One individually-reasoned offer decision per person, every campaign cycle. Output delivered in the client\'s existing file format — no changes to their execution stack.',
 
-    resultsHeadline: '1.4x response rate. 2x campaign efficiency. Same catalogue, same data, same process.',
+    resultsHeadline: '1.4x response rate. 2x campaign efficiency. Same catalog, same data, same process.',
     resultBarLabel: 'Response rate improvement',
     resultBarBefore: { label: 'Baseline', width: '44%', text: 'Prior campaigns' },
     resultBarAfter: { label: 'With AIgnyte', width: '62%', text: '1.4x improvement' },
@@ -220,17 +220,17 @@ export const successStories: SuccessStory[] = [
       '2x campaign efficiency — more response per pound of campaign spend, with the same budget',
     ],
 
-    whyH2: 'The value was already in the catalogue.',
+    whyH2: 'The value was already in the catalog.',
     whyPara: 'The retailer\'s existing models were optimised to answer <em>who</em> is likely to respond. AIgnyte added the second layer — given that this person is being mailed, <em>what offer</em> is most likely to make them respond? These are separate problems. With 4,000+ possible combinations and millions of prospects, no manual process could answer the second question at scale. AIgnyte did — making a distinct, individually-reasoned offer decision for every person in the file, entirely complementary to the existing targeting approach, without touching the selection process or the execution stack.',
     whyItems: [],
 
-    ctaH2: 'Your offer catalogue is more valuable than you think.',
+    ctaH2: 'Your offer catalog is more valuable than you think.',
     ctaPara: 'AIgnyte works with your existing offers, your existing campaign file, and your existing execution stack. The lift comes from matching — not from building more.',
 
     challenge:
-      'The retailer had an enormous catalogue of offer combinations — discount tiers, category focuses, seasonal themes — and was relying on broad segment rules to assign them. With 4,000+ possible combinations and millions of recipients, human-defined segmentation rules couldn\'t capture individual-level affinity. They were leaving significant lift on the table.',
+      'The retailer had an enormous catalog of offer combinations — discount tiers, category focuses, seasonal themes — and was relying on broad segment rules to assign them. With 4,000+ possible combinations and millions of recipients, human-defined segmentation rules couldn\'t capture individual-level affinity. They were leaving significant lift on the table.',
     solution:
-      'AIgnyte ingested the full offer catalogue and generated Genetic Signatures across all 4,000+ combinations. For each recipient in each campaign file, the decisioning engine scored every offer and selected the optimal match. The process ran end-to-end in the existing production workflow with no disruption to the execution stack.',
+      'AIgnyte ingested the full offer catalog and generated Genetic Signatures across all 4,000+ combinations. For each recipient in each campaign file, the decisioning engine scored every offer and selected the optimal match. The process ran end-to-end in the existing production workflow with no disruption to the execution stack.',
     results: [
       { num: '1.4×', label: 'Response rate', note: 'vs. segment-based assignment' },
       { num: '2×', label: 'Campaign efficiency', note: 'Revenue per piece mailed' },

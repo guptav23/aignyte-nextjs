@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { successStories } from '@/data/successStories';
+import LetsTalkBtn from '@/components/LetsTalkBtn';
 import styles from './SuccessStoriesPage.module.css';
 
 export const metadata: Metadata = {
@@ -50,6 +51,9 @@ export default function SuccessStoriesPage() {
         <div className={styles.ctaInner}>
           <h2>Want to see a blind validation on your data?</h2>
           <p>We run a retrospective validation before any live deployment. No commitment required.</p>
+          <div style={{ marginTop: 32 }}>
+            <LetsTalkBtn />
+          </div>
         </div>
       </section>
     </>

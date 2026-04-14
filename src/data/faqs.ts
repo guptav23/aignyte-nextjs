@@ -10,7 +10,7 @@ export const faqs: FAQ[] = [
     question: 'Will AIgnyte increase the complexity and duration of our DM campaign process?',
     answer: `We understand that campaign execution is a critical business process. We work closely with your team to minimise changes to process and timelines.
 
-**Process changes are marginal:** You send de-identified prospect data (e.g. a pre-screen bureau record) after your selection process to AIgnyte. We've built tools to make data exchange a standardised, automatable process. We return an output mail file in whatever format you need — ready for validation and export to printers.
+**Process changes are marginal:** You send de-identified prospect data (e.g. a pre-screened bureau record) after your selection process to AIgnyte. We've built tools to make data exchange a standardised, automatable process. We return an output mail file in whatever format you need — ready for validation and export to printers.
 
 **Timeline changes are limited, if any:** Once production scoring is set up, our cycle time from receipt of selection file to optimised campaign file is 2–3 days — generally no addition to your total DM timeline.
 
@@ -53,16 +53,16 @@ In either case, **Cost Per Acquisition will be lower.**`,
     answer: `Yes, within limits. AIgnyte works to maximise response likelihood by optimising creative selection across all response score ranges — including low ones. There are likely segments of your prospect base that you don't mail today where the response lift from AIgnyte is sufficient to push them over your mail hurdle, lowering cost per account and driving higher NPV. This can be demonstrated during AIgnyte's Setup phase.`,
   },
   {
-    category: 'Creatives & Catalogue',
+    category: 'Creatives & Catalog',
     question: "What if I don't have a lot of creatives? Does AIgnyte still work?",
-    answer: `Yes. We understand that not every business has a deep catalogue of marketing creatives — they're expensive to develop and test. In our Setup work across multiple industries, we've tested with clients that had literally a handful of different creatives.
+    answer: `Yes. We understand that not every business has a deep catalog of marketing creatives — they're expensive to develop and test. In our Setup work across multiple industries, we've tested with clients that had literally a handful of different creatives.
 
 While more variations tends to provide additional information value, **AIgnyte has demonstrated significant lifts in response even with only a handful of creatives.**`,
   },
   {
-    category: 'Creatives & Catalogue',
+    category: 'Creatives & Catalog',
     question: 'What if we want to introduce a new creative?',
-    answer: `No problem. We can take any creative and generate its Genetic Signature — whether you've actually sent it or not. The new creative simply becomes part of your catalogue.
+    answer: `No problem. We can take any creative and generate its Genetic Signature — whether you've actually sent it or not. The new creative simply becomes part of your catalog.
 
 AIgnyte can then simulate whether the new creative is a better match for any prospects than your existing creatives. This lets you discard new creatives unlikely to succeed and narrow live testing to only those with a higher probability of success in targeted populations — dramatically reducing testing investment.`,
   },
@@ -71,7 +71,7 @@ AIgnyte can then simulate whether the new creative is a better match for any pro
     question: "How does AIgnyte's Setup work?",
     answer: `AIgnyte's Setup phase accomplishes two things simultaneously: process integration and value demonstration — both with minimal effort from your team.
 
-**Process integration:** We work with your team to connect AIgnyte into your existing campaign production workflow. You send us de-identified prospect data and your creative catalogue. We return an optimised assignment file in your required format. This is a one-time setup that can then be automated.
+**Process integration:** We work with your team to connect AIgnyte into your existing campaign production workflow. You send us de-identified prospect data and your creative catalog. We return an optimised assignment file in your required format. This is a one-time setup that can then be automated.
 
 **Value demonstration:** Using your campaign history data, we train the platform and run a blind holdout — a sample of records where we generate AIgnyte's creative recommendations without access to the actual response data. We then compare AIgnyte's selections against what was sent and the observed responses.
 

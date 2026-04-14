@@ -17,7 +17,7 @@ const phases = [
       },
       {
         n: '02',
-        title: 'Creative catalogue',
+        title: 'Creative catalog',
         body: 'Your existing inventory encoded into Genetic Signatures. New creatives added at any point and incorporated immediately.',
       },
       {
@@ -92,7 +92,7 @@ const dataflowCells = [
     title: 'What goes in',
     items: [
       'De-identified prospect selection file',
-      'Creative catalogue (once, at setup)',
+      'Creative catalog (once, at setup)',
       'Volume caps, carrier-route and eligibility rules',
       'No PII at any stage',
     ],

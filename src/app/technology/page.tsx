@@ -52,7 +52,7 @@ const pillars = [
     n: '01',
     title: 'Genetic Signature™',
     sub: 'Creative decomposition',
-    body: 'Every creative in your catalogue is decomposed into its fundamental components: offer structure, emotional framing, visual hierarchy, call-to-action pattern, urgency signals, and social proof type. The result is a multi-dimensional Genetic Signature that captures what the creative is — not just what it looks like.',
+    body: 'Every creative in your catalog is decomposed into its fundamental components: offer structure, emotional framing, visual hierarchy, call-to-action pattern, urgency signals, and social proof type. The result is a multi-dimensional Genetic Signature that captures what the creative is — not just what it looks like.',
     tag: 'Proprietary',
   },
   {
@@ -73,14 +73,14 @@ const pillars = [
     n: '04',
     title: 'Privacy-Safe Architecture',
     sub: 'No PII required',
-    body: 'AIgnyte operates on de-identified prospect data. Standard pre-screen bureau records are sufficient. No PII is transmitted or stored. The platform is designed from the ground up to work within the data constraints of direct marketing — not around them.',
+    body: 'AIgnyte operates on de-identified prospect data. Standard pre-screened bureau records are sufficient. No PII is transmitted or stored. The platform is designed from the ground up to work within the data constraints of direct marketing — not around them.',
     tag: 'By design',
   },
 ];
 
 const specs = [
-  { label: 'Data input', value: 'De-identified prospect records · standard pre-screen bureau fields' },
-  { label: 'Creative input', value: 'Your existing catalogue — no new material required' },
+  { label: 'Data input', value: 'De-identified prospect records · standard pre-screened bureau fields' },
+  { label: 'Creative input', value: 'Your existing catalog — no new material required' },
   { label: 'Direct mail turnaround', value: '2–3 business days after file receipt' },
   { label: 'Email integration', value: 'Real-time API · sub-100ms per record' },
   { label: 'Setup time', value: '4–6 weeks (one-time)' },

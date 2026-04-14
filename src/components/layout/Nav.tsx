@@ -30,6 +30,10 @@ export default function Nav() {
     return pathname === href || pathname.startsWith(href + '/');
   }
 
+  function closeMegaMenu(e: React.MouseEvent) {
+    (e.currentTarget.closest('li[tabindex]') as HTMLElement)?.blur();
+  }
+
   return (
     <>
       <nav className={styles.nav}>
@@ -61,11 +65,11 @@ export default function Nav() {
             <div className={`${styles.megaMenu} ${styles.megaMenuIndustries}`}>
               <div className={styles.megaHeader}>
                 <span className={styles.megaHeaderLabel}>Industries</span>
-                <Link className={styles.megaHeaderLink} href="/industries">View all →</Link>
+                <Link className={styles.megaHeaderLink} href="/industries" onClick={closeMegaMenu}>View all →</Link>
               </div>
               <div className={styles.megaGrid}>
                 {industries.map((ind) => (
-                  <Link key={ind.href} className={styles.megaItem} href={ind.href}>
+                  <Link key={ind.href} className={styles.megaItem} href={ind.href} onClick={closeMegaMenu}>
                     <div className={styles.megaItemIcon}>{ind.icon}</div>
                     <div className={styles.megaItemText}>
                       <div className={styles.megaItemName}>
@@ -99,11 +103,11 @@ export default function Nav() {
             <div className={`${styles.megaMenu} ${styles.megaMenuStories}`}>
               <div className={styles.megaHeader}>
                 <span className={styles.megaHeaderLabel}>Success Stories</span>
-                <Link className={styles.megaHeaderLink} href="/success-stories">View all →</Link>
+                <Link className={styles.megaHeaderLink} href="/success-stories" onClick={closeMegaMenu}>View all →</Link>
               </div>
               <div className={styles.megaStories}>
                 {caseStudies.map((cs) => (
-                  <Link key={cs.href} className={styles.storyItem} href={cs.href}>
+                  <Link key={cs.href} className={styles.storyItem} href={cs.href} onClick={closeMegaMenu}>
                     <div className={styles.storyStat}>
                       <div className={styles.storyStatNum}>{cs.stat}</div>
                       <div className={styles.storyStatMetric}>{cs.metricLabel}</div>

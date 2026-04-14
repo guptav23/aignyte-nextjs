@@ -152,7 +152,7 @@ export default function SuccessStoryClient({ story }: { story: SuccessStory }) {
         <div className={styles.sectionInner}>
           <span className={styles.sectionLabel}>Why It Worked</span>
           <h2 className={styles.sectionH2}>{story.whyH2}</h2>
-          <p className={styles.sectionPara} style={{ maxWidth: '68ch', marginBottom: 32 }}>{story.whyPara}</p>
+          <p className={styles.sectionPara} style={{ maxWidth: '68ch', marginBottom: 32 }}><Html text={story.whyPara} /></p>
           <div className={styles.whyGrid}>
             {story.whyItems.map((item, i) => (
               <div key={i} className={`${styles.whyCard} aig-reveal`}>
