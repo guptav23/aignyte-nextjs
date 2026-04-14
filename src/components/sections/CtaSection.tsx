@@ -101,7 +101,8 @@ export default function CtaSection() {
             ))}
           </div>
           <p className={styles.contact}>
-            Or call us at (908) 747-2000 · info@aignyte.com
+            Or call us at (908) 747-2000 ·{' '}
+            <a href="mailto:info@aignyte.com">info@aignyte.com</a>
           </p>
         </div>
 

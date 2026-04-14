@@ -70,13 +70,14 @@
   .bottomLinks a:hover { color: oklch(1 0 0 / 0.50); }
 }
 
-.contact { color: oklch(1 0 0 / 0.25); }
+.contact { color: oklch(1 0 0 / 0.30); }
 .contact a {
-  color: oklch(1 0 0 / 0.50); text-decoration: none;
-  transition: color 150ms ease;
+  color: var(--orange); text-decoration: none;
+  border-bottom: 1px solid oklch(0.68 0.160 50 / 0.40);
+  transition: color 150ms ease, border-color 150ms ease;
 }
 @media (hover: hover) and (pointer: fine) {
-  .contact a:hover { color: oklch(1 0 0 / 0.85); }
+  .contact a:hover { color: #f5b84a; border-color: oklch(0.68 0.160 50 / 0.80); }
 }
 
 @media (max-width: 900px) {

@@ -41,7 +41,7 @@ export default function PrivacyPage() {
           },
           {
             heading: 'Your rights',
-            body: 'Depending on your jurisdiction, you may have rights to access, correct, delete, or restrict the processing of your personal information. To exercise these rights, contact us at info@aignyte.com. We will respond within the timeframes required by applicable law.',
+            body: <>Depending on your jurisdiction, you may have rights to access, correct, delete, or restrict the processing of your personal information. To exercise these rights, contact us at <a href="mailto:info@aignyte.com" style={{ color: 'var(--orange)', textDecoration: 'none', borderBottom: '1px solid rgba(240,125,30,0.4)' }}>info@aignyte.com</a>. We will respond within the timeframes required by applicable law.</>,
           },
           {
             heading: 'Third-party services',
@@ -53,7 +53,7 @@ export default function PrivacyPage() {
           },
           {
             heading: 'Contact us',
-            body: 'Questions about this Privacy Policy or your personal information? Contact us at info@aignyte.com or (908) 747-2000. AIgnyte, Inc. — 100 Campus Dr, Suite 117, Parsippany, NJ 07054.',
+            body: <>Questions about this Privacy Policy or your personal information? Contact us at <a href="mailto:info@aignyte.com" style={{ color: 'var(--orange)', textDecoration: 'none', borderBottom: '1px solid rgba(240,125,30,0.4)' }}>info@aignyte.com</a> or (908) 747-2000. AIgnyte, Inc. — 100 Campus Dr, Suite 117, Parsippany, NJ 07054.</>,
           },
         ].map((s) => (
           <section key={s.heading} style={{ marginBottom: 40, paddingBottom: 40, borderBottom: '1px solid var(--border)' }}>
