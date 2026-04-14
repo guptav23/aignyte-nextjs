@@ -176,7 +176,9 @@ export default function LeadershipPage() {
             with our team. We&apos;ll walk through your setup and tell you honestly what lift looks
             like for your vertical.
           </p>
-          <LetsTalkBtn />
+          <div style={{ marginTop: '32px' }}>
+            <LetsTalkBtn />
+          </div>
         </div>
       </section>
     </>
