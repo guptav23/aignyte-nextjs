@@ -31,7 +31,7 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={styles.top}>
         <div className={styles.brand}>
-          <Image src="/logo-color.png" alt="AIgnyte" height={56} width={220} className={styles.logoImg} />
+          <Image src="/logo-color.png" alt="AIgnyte" height={80} width={320} className={styles.logoImg} />
 
 
           <p>The pioneer of Message Decisioning — individual-level message decisions to maximise response.</p>
