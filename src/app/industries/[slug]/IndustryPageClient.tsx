@@ -17,23 +17,16 @@ export default function IndustryPageClient({ industry }: { industry: IndustryPag
             <Link className={styles.backLink} href="/industries">← All Industries</Link>
             <span className={styles.sectorTag}>{industry.sector}</span>
           </div>
-          <div className={styles.heroGrid}>
-            <div>
-              <div className={`${styles.heroEyebrow} fi`}>
-                <span className={styles.heroIcon}>{industry.icon}</span>
-                <span className={styles.heroName}>{industry.name}</span>
-              </div>
-              <h1 className="fi">{industry.heroTagline}</h1>
-              <p className={`${styles.heroSub} fi`}>{industry.heroSub}</p>
-              <div className={`${styles.heroActions} fi`}>
-                <button className="btn-primary" onClick={openLetsTalk}>Let&apos;s Talk</button>
-                <Link className="btn-ghost" href="/how-it-works">How It Works</Link>
-              </div>
+          <div className={styles.heroContent}>
+            <div className={`${styles.heroEyebrow} fi`}>
+              <span className={styles.heroIcon}>{industry.icon}</span>
+              <span className={styles.heroName}>{industry.name}</span>
             </div>
-            <div className={`${styles.heroStat} fi`}>
-              <div className={styles.heroStatNum}>{industry.heroStat}</div>
-              <div className={styles.heroStatLabel}>{industry.heroStatLabel}</div>
-              <p className={styles.heroStatNote}>Proven lift · Production deployment</p>
+            <h1 className="fi">{industry.heroTagline}</h1>
+            <p className={`${styles.heroSub} fi`}>{industry.heroSub}</p>
+            <div className={`${styles.heroActions} fi`}>
+              <button className="btn-primary" onClick={openLetsTalk}>Let&apos;s Talk</button>
+              <Link className="btn-ghost" href="/how-it-works">How It Works</Link>
             </div>
           </div>
         </div>
