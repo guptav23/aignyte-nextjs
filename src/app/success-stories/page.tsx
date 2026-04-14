@@ -48,7 +48,7 @@ export default function SuccessStoriesPage() {
 
       <section className={styles.cta}>
         <div className={styles.ctaInner}>
-          <h2>Want to see a blind holdout on your data?</h2>
+          <h2>Want to see a blind validation on your data?</h2>
           <p>We run a retrospective validation before any live deployment. No commitment required.</p>
         </div>
       </section>

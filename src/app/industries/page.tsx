@@ -25,7 +25,7 @@ export default function IndustriesPage() {
       <section className={styles.hero}>
         <div className={styles.heroInner}>
           <span className="section-tag fi">Industries</span>
-          <h1 className="fi">One-to-one marketing,<br />proven across industries.</h1>
+          <h1 className="fi"><em>One-to-one</em> marketing,<br />proven across industries.</h1>
           <p className={`${styles.heroSub} fi`}>
             AIgnyte works wherever direct marketing response rates matter. 20–70% proven lifts
             across financial services, healthcare, non-profit, telecom, and retail.
@@ -68,10 +68,6 @@ export default function IndustriesPage() {
               <Link key={ind.slug} className={styles.card} href={`/industries/${ind.slug}`}>
                 <div className={styles.cardTop}>
                   <span className={styles.cardIcon}>{ind.icon}</span>
-                  <div className={styles.cardStat}>
-                    <span className={styles.cardStatNum}>{ind.heroStat}</span>
-                    <span className={styles.cardStatLabel}>{ind.heroStatLabel}</span>
-                  </div>
                 </div>
                 <h3 className={styles.cardName}>{ind.name}</h3>
                 <p className={styles.cardSector}>{ind.sector}</p>

@@ -157,32 +157,34 @@ export default function HowItWorksPage() {
         </div>
       </section>
 
-      {/* Phases */}
+      {/* Phases — sticky stacking cards */}
       <section className={styles.phases}>
         <div className={styles.phasesInner}>
-          {phases.map((p) => (
-            <div key={p.phase} className={`${styles.phaseCard} aig-reveal`}>
-              <div className={styles.phaseHeader}>
-                <div>
-                  <span className={styles.phaseNum}>{p.phase}</span>
-                  <h2 className={styles.phaseName}>{p.name}</h2>
-                </div>
-                <span className={styles.phaseTag}>{p.tag}</span>
-              </div>
-              <div className={styles.phaseSteps}>
-                {p.steps.map((s) => (
-                  <div key={s.n} className={styles.step}>
-                    <div className={styles.stepN}>{s.n}</div>
-                    <div>
-                      <div className={styles.stepTitle}>{s.title}</div>
-                      <p className={styles.stepBody}>{s.body}</p>
-                    </div>
+          {phases.map((p, i) => (
+            <div key={p.phase} className={styles.phaseSlot}>
+              <div className={`${styles.phaseCard} ${i === 0 ? styles.phaseCard1 : styles.phaseCard2}`}>
+                <div className={styles.phaseHeader}>
+                  <div>
+                    <span className={styles.phaseNum}>{p.phase}</span>
+                    <h2 className={styles.phaseName}>{p.name}</h2>
                   </div>
-                ))}
-              </div>
-              <div className={`${styles.outcome} ${p.outcomeClass}`}>
-                <span className={styles.outcomeLabel}>Outcome</span>
-                <p className={styles.outcomeText}>{p.outcome}</p>
+                  <span className={styles.phaseTag}>{p.tag}</span>
+                </div>
+                <div className={styles.phaseSteps}>
+                  {p.steps.map((s) => (
+                    <div key={s.n} className={styles.step}>
+                      <div className={styles.stepN}>{s.n}</div>
+                      <div>
+                        <div className={styles.stepTitle}>{s.title}</div>
+                        <p className={styles.stepBody}>{s.body}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div className={`${styles.outcome} ${p.outcomeClass}`}>
+                  <span className={styles.outcomeLabel}>Outcome</span>
+                  <p className={styles.outcomeText}>{p.outcome}</p>
+                </div>
               </div>
             </div>
           ))}
@@ -237,7 +239,7 @@ export default function HowItWorksPage() {
       <section className={styles.cta}>
         <div className={styles.ctaInner}>
           <span className="section-tag light">Get Started</span>
-          <h2>Let&apos;s talk about your one-to-one (direct marketing) program.</h2>
+          <h2 style={{ marginTop: 32 }}>Let&apos;s talk about your one-to-one (direct marketing) program.</h2>
           <p>
             We&apos;ll walk through your current setup, show you where Message Decisioning fits,
             and give you a realistic lift projection based on programs we&apos;ve run in your

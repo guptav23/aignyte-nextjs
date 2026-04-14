@@ -68,9 +68,9 @@ export default function Footer() {
       <div className={styles.bottom}>
         <p>© {new Date().getFullYear()} AIgnyte. Patent pending. All rights reserved.</p>
         <div className={styles.bottomLinks}>
-          <Link href="#">Cookie Policy</Link>
-          <Link href="#">Privacy</Link>
-          <Link href="#">Site Map</Link>
+          <Link href="/cookie-policy">Cookie Policy</Link>
+          <Link href="/privacy">Privacy</Link>
+          <Link href="/site-map">Site Map</Link>
         </div>
         <p className={styles.contact}>
           (908) 747-2000 ·{' '}

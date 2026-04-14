@@ -53,11 +53,11 @@ const advisors = [
     bio: 'Brings deep experience in enterprise technology, AI strategy, and scaling analytics businesses across global markets.',
   },
   {
-    initials: 'RB',
-    gradient: 'linear-gradient(135deg, #d97706, #f59e0b)',
-    name: 'Rob Biggers',
+    initials: 'BK',
+    gradient: 'linear-gradient(135deg, #1a2b5e, #3b5cb8)',
+    name: 'Broud Kuhn',
     title: 'Strategic Advisor',
-    bio: 'Extensive background in direct marketing and financial services, with deep knowledge of campaign operations and response optimisation.',
+    bio: 'Deep experience in marketing strategy and performance marketing, with a focus on measurable outcomes at enterprise scale.',
   },
   {
     initials: 'RH',
@@ -67,11 +67,11 @@ const advisors = [
     bio: 'Brings expertise in data-driven marketing, consumer analytics, and enterprise technology commercialisation.',
   },
   {
-    initials: 'BK',
-    gradient: 'linear-gradient(135deg, #1a2b5e, #3b5cb8)',
-    name: 'Broud Kuhn',
+    initials: 'RB',
+    gradient: 'linear-gradient(135deg, #d97706, #f59e0b)',
+    name: 'Rob Biggers',
     title: 'Strategic Advisor',
-    bio: 'Deep experience in marketing strategy and performance marketing, with a focus on measurable outcomes at enterprise scale.',
+    bio: 'Extensive background in direct marketing and financial services, with deep knowledge of campaign operations and response optimisation.',
   },
 ];
 
@@ -134,7 +134,7 @@ export default function LeadershipPage() {
       {/* Advisory Board */}
       <section className={styles.advisors}>
         <div className={styles.advisorsInner}>
-          <span className="section-tag">Advisory Board</span>
+          <span className="section-tag">Advisors</span>
           <div className={styles.advisorsGrid}>
             {advisors.map((a) => (
               <div key={a.name} className={`${styles.advisorCard} aig-reveal`}>

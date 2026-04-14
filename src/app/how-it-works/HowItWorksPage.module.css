@@ -9,21 +9,51 @@
 .hero h1 { color: oklch(1 0 0 / 0.92); margin: 16px 0 20px; }
 .heroSub { font-size: 18px; color: oklch(1 0 0 / 0.50); line-height: 1.65; max-width: 68ch; }
 
-/* Phases */
-.phases { background: var(--white); padding: 88px 52px; border-top: 1px solid var(--border); }
+/* Phases — sticky stacking cards */
+.phases {
+  background: var(--cream);
+  padding: 88px 52px 0;
+  border-top: 1px solid var(--border);
+}
 .phasesInner {
   max-width: 1000px; margin: 0 auto;
-  display: flex; flex-direction: column; gap: 32px;
+  display: flex; flex-direction: column;
+  padding-bottom: 88px;
+}
+
+/* Each slot provides the scroll distance for its card to stick */
+.phaseSlot {
+  position: relative;
+}
+.phaseSlot:first-child {
+  /* Extra space: as you scroll through this, Card 2 slides up over Card 1 */
+  padding-bottom: 240px;
 }
 
 .phaseCard {
-  border: 1px solid var(--border); border-radius: 8px; overflow: hidden;
-  box-shadow: rgba(1, 1, 32, 0.06) 0px 4px 24px;
+  border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
+  box-shadow: rgba(1, 1, 32, 0.10) 0px 8px 40px;
+  background: var(--white);
+}
+
+/* Card 1 — sticks first, sits below Card 2 in z-order */
+.phaseCard1 {
+  position: sticky;
+  top: 82px;
+  z-index: 1;
+}
+
+/* Card 2 — slides up over Card 1, sticks 22px below Card 1's top
+   so Card 1's header peeks out, showing the stack */
+.phaseCard2 {
+  position: sticky;
+  top: 104px;
+  z-index: 2;
 }
 .phaseHeader {
   display: flex; align-items: flex-end; justify-content: space-between; gap: 20px;
   padding: 28px 32px 24px; border-bottom: 1px solid var(--border);
-  background: var(--cream); flex-wrap: wrap;
+  background: oklch(0.97 0.01 72); flex-wrap: wrap;
 }
 .phaseNum {
   font-family: var(--font-geist-mono, 'Geist Mono', monospace);
@@ -161,7 +191,8 @@
 
 @media (max-width: 900px) {
   .hero { padding: 100px 20px 60px; }
-  .phases { padding: 60px 20px; }
+  .phases { padding: 60px 20px 0; }
+  .phaseSlot:first-child { padding-bottom: 120px; }
   .phaseHeader { padding: 20px; }
   .phaseSteps { padding: 0 20px; }
   .outcome { margin: 0 20px 20px; }
