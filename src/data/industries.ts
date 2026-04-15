@@ -1,15 +1,8 @@
-import type { LucideIcon } from 'lucide-react';
-import {
-  CreditCard, Landmark, Home, Building2, Shield, Heart,
-  FileText, Wifi, Stethoscope, ShoppingBag,
-} from 'lucide-react';
-
 export interface WhyPoint { title: string; body: string; }
 export interface UseCase  { title: string; body: string; }
 
 export interface IndustryPage {
   slug: string;
-  icon: LucideIcon;
   name: string;
   heroTagline: string;
   sector: string;
@@ -32,7 +25,6 @@ export interface IndustryPage {
 export const industryPages: IndustryPage[] = [
   {
     slug: 'credit-cards',
-    icon: CreditCard,
     name: 'Credit Cards',
     heroTagline: 'The right card offer for every individual — at every stage',
     sector: 'Financial Services',
@@ -72,7 +64,6 @@ export const industryPages: IndustryPage[] = [
   },
   {
     slug: 'personal-loans',
-    icon: Landmark,
     name: 'Personal Loans',
     heroTagline: 'Match each borrower to the offer framing that fits their situation',
     sector: 'Financial Services',
@@ -112,7 +103,6 @@ export const industryPages: IndustryPage[] = [
   },
   {
     slug: 'mortgage',
-    icon: Home,
     name: 'Mortgage & Home Equity',
     heroTagline: 'The right mortgage message for every homeowner and prospect',
     sector: 'Financial Services',
@@ -152,7 +142,6 @@ export const industryPages: IndustryPage[] = [
   },
   {
     slug: 'retail-banking',
-    icon: Building2,
     name: 'Retail Banking',
     heroTagline: 'The right banking message for every individual — at every stage of the relationship',
     sector: 'Financial Services',
@@ -192,7 +181,6 @@ export const industryPages: IndustryPage[] = [
   },
   {
     slug: 'insurance',
-    icon: Shield,
     name: 'Insurance',
     heroTagline: 'The right insurance message for every prospect and policyholder',
     sector: 'Insurance',
@@ -232,7 +220,6 @@ export const industryPages: IndustryPage[] = [
   },
   {
     slug: 'non-profit',
-    icon: Heart,
     name: 'Non-Profit',
     heroTagline: 'The right appeal for every donor and prospect, individually matched',
     sector: 'Non-Profit',
@@ -272,7 +259,6 @@ export const industryPages: IndustryPage[] = [
   },
   {
     slug: 'collections',
-    icon: FileText,
     name: 'Collections',
     heroTagline: 'The right outreach for every delinquent account — individually matched',
     sector: 'Financial Services',
@@ -312,7 +298,6 @@ export const industryPages: IndustryPage[] = [
   },
   {
     slug: 'telecom',
-    icon: Wifi,
     name: 'Telecom & Cable',
     heroTagline: 'The right message for every subscriber — acquisition, upsell, and churn prevention',
     sector: 'Telecom',
@@ -352,7 +337,6 @@ export const industryPages: IndustryPage[] = [
   },
   {
     slug: 'healthcare',
-    icon: Stethoscope,
     name: 'Healthcare & Medicare',
     heroTagline: 'The right message for every patient and member — individually matched',
     sector: 'Healthcare',
@@ -392,7 +376,6 @@ export const industryPages: IndustryPage[] = [
   },
   {
     slug: 'd2c-ecommerce',
-    icon: ShoppingBag,
     name: 'D2C & E-Commerce',
     heroTagline: 'The right message for every customer — acquisition, retention, and win-back',
     sector: 'Retail',

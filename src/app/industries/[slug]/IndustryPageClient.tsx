@@ -3,11 +3,12 @@
 import Link from 'next/link';
 import { useModal } from '@/context/ModalContext';
 import type { IndustryPage } from '@/data/industries';
+import { industryIconBySlug } from '@/data/industryIcons';
 import styles from './IndustryPage.module.css';
 
 export default function IndustryPageClient({ industry }: { industry: IndustryPage }) {
   const { openLetsTalk } = useModal();
-  const IndustryIcon = industry.icon;
+  const IndustryIcon = industryIconBySlug[industry.slug];
 
   return (
     <>

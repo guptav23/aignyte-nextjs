@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useRef, useEffect, useState } from 'react';
 import { useModal } from '@/context/ModalContext';
 import type { SuccessStory } from '@/data/successStories';
+import { storyIconByKey } from '@/data/storyIcons';
 import styles from './SuccessStoryPage.module.css';
 
 function Html({ text }: { text: string }) {
@@ -44,10 +45,10 @@ export default function SuccessStoryClient({ story }: { story: SuccessStory }) {
           <p className={`${styles.heroSub} fi`}>{story.heroSub}</p>
           <div className={styles.heroMeta}>
             {story.heroMeta.map((m, i) => {
-              const MetaIcon = m.icon;
+              const MetaIcon = storyIconByKey[m.iconKey];
               return (
                 <span key={i} className={styles.heroMetaItem}>
-                  <MetaIcon size={14} strokeWidth={1.5} style={{ flexShrink: 0 }} />
+                  {MetaIcon && <MetaIcon size={14} strokeWidth={1.5} style={{ flexShrink: 0 }} />}
                   {m.text}
                 </span>
               );

@@ -5,6 +5,7 @@ import {
   Mail, RefreshCw, TrendingUp, Heart, Zap, RotateCcw, Landmark,
 } from 'lucide-react';
 import { industryPages } from '@/data/industries';
+import { industryIconBySlug } from '@/data/industryIcons';
 import LetsTalkBtn from '@/components/LetsTalkBtn';
 import styles from './IndustriesPage.module.css';
 
@@ -72,7 +73,7 @@ export default function IndustriesPage() {
           {/* Industry cards */}
           <div className={styles.cards}>
             {industryPages.map((ind) => {
-              const IndIcon = ind.icon;
+              const IndIcon = industryIconBySlug[ind.slug];
               return (
               <Link key={ind.slug} className={styles.card} href={`/industries/${ind.slug}`}>
                 <div className={styles.cardTop}>

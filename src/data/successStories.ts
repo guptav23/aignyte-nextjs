@@ -1,7 +1,4 @@
-import type { LucideIcon } from 'lucide-react';
-import { Mail, Calendar, Layers, ShoppingBag, Stethoscope, Target, TrendingDown } from 'lucide-react';
-
-export interface HeroMetaItem { icon: LucideIcon; text: string; }
+export interface HeroMetaItem { iconKey: string; text: string; }
 
 export interface SuccessStory {
   slug: string;
@@ -29,7 +26,7 @@ export interface SuccessStory {
   challengeLabel: string;
   challengeH2: string;
   challengeParas: string[];
-  challengeCards?: { icon: LucideIcon; title: string; body: string; val: string }[];
+  challengeCards?: { iconKey: string; title: string; body: string; val: string }[];
   // No new creatives callout
   noNewTitle: string;
   noNewBody: string;
@@ -78,9 +75,9 @@ export const successStories: SuccessStory[] = [
     heroH1: '50%+ increase in response rate for a large national non-profit',
     heroSub: 'A major non-profit with an established segmented direct mail program — testing-led, experience-driven. AIgnyte replaced hypothesis-based assignment with individually-matched creative decisions. No new creatives, no IT project.',
     heroMeta: [
-      { icon: Mail,     text: '10.8M direct mail pieces' },
-      { icon: Calendar, text: '10 campaigns · 12 months' },
-      { icon: Layers,   text: 'Envelope · Insert · Letter components' },
+      { iconKey: 'mail',     text: '10.8M direct mail pieces' },
+      { iconKey: 'calendar', text: '10 campaigns · 12 months' },
+      { iconKey: 'layers',   text: 'Envelope · Insert · Letter components' },
     ],
     heroStats: [
       { num: '50%+', label: 'Increase in response rate', sub: 'Across all campaigns vs. baseline' },
@@ -170,9 +167,9 @@ export const successStories: SuccessStory[] = [
     heroH1: '1.4x improvement in response rates and 2x increase in campaign efficiency',
     heroSub: 'A Fortune 10 retailer was running high-volume direct mail campaigns with a fixed approach to offer assignment. AIgnyte matched every prospect to their individually optimal offer combination — selecting from 4,000+ possibilities — with no new creatives and no changes to the existing execution stack.',
     heroMeta: [
-      { icon: Mail,        text: 'High-volume direct mail' },
-      { icon: ShoppingBag, text: 'Fortune 10 retailer' },
-      { icon: Layers,      text: '4,000+ offer combinations' },
+      { iconKey: 'mail',        text: 'High-volume direct mail' },
+      { iconKey: 'shoppingBag', text: 'Fortune 10 retailer' },
+      { iconKey: 'layers',      text: '4,000+ offer combinations' },
     ],
     heroStats: [
       { num: '1.4x', label: 'Improvement in response rate', sub: 'vs. all previous campaigns without AIgnyte' },
@@ -196,19 +193,19 @@ export const successStories: SuccessStory[] = [
     ],
     challengeCards: [
       {
-        icon: Target,
+        iconKey: 'target',
         title: 'The wrong question',
         body: 'Existing models asked <em>who</em> will respond. AIgnyte reframed this as <em>what</em> will make each individual respond — a fundamentally different problem requiring a fundamentally different approach.',
         val: 'New framing',
       },
       {
-        icon: Layers,
+        iconKey: 'layers',
         title: 'Deep offer catalog',
         body: 'The retailer had a rich set of product combinations, promotional structures, and creative elements — resulting in 4,000+ possible offer combinations. No manual process could match these to individuals at scale.',
         val: '4,000+ combinations',
       },
       {
-        icon: TrendingDown,
+        iconKey: 'trendingDown',
         title: 'Untapped efficiency',
         body: 'Sending sub-optimal offers to prospects isn\'t just a missed opportunity — it\'s a direct cost. Every campaign cycle, a significant portion of spend was reaching people with the wrong message.',
         val: 'Systematic mismatch',
@@ -273,9 +270,9 @@ export const successStories: SuccessStory[] = [
     heroH1: '70% increase in email click-through rate for a large hospital chain',
     heroSub: 'A large hospital chain with a segmented email strategy — hypothesis-driven, with ongoing experimentation. AIgnyte replaced the guesswork with individually-matched decisions, with no new creatives and no changes to the existing campaign execution process.',
     heroMeta: [
-      { icon: Mail,        text: 'Email engagement campaign' },
-      { icon: Stethoscope, text: 'Large hospital chain' },
-      { icon: Layers,      text: 'Existing content catalog only' },
+      { iconKey: 'mail',        text: 'Email engagement campaign' },
+      { iconKey: 'stethoscope', text: 'Large hospital chain' },
+      { iconKey: 'layers',      text: 'Existing content catalog only' },
     ],
     heroStats: [
       { num: '70%', label: 'Increase in click-through rate', sub: 'vs. baseline email campaigns' },
