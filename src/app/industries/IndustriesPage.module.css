@@ -75,7 +75,7 @@
 .card:active { transform: translateY(1px) scale(0.99); }
 
 .cardTop { display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px; }
-.cardIcon { font-size: 28px; }
+.cardIcon { font-size: 28px; color: var(--orange); }
 .cardStat { text-align: right; }
 .cardStatNum {
   font-family: var(--font-geist, 'Geist', sans-serif);
