@@ -11,7 +11,7 @@ export default function ResultsSection() {
             <h2>Real results.<br />Across verticals and channels.</h2>
           </div>
           <p>
-            Measured against control groups in production deployments. No new creatives.
+            Measured against control groups in production deployments and in blind validations. No new creatives.
             No additional data. No experimentation required.
           </p>
         </div>
