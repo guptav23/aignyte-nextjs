@@ -43,7 +43,15 @@ export default function SuccessStoryClient({ story }: { story: SuccessStory }) {
           <h1 className="fi">{story.heroH1}</h1>
           <p className={`${styles.heroSub} fi`}>{story.heroSub}</p>
           <div className={styles.heroMeta}>
-            {story.heroMeta.map((m, i) => <span key={i} className={styles.heroMetaItem}>{m}</span>)}
+            {story.heroMeta.map((m, i) => {
+              const MetaIcon = m.icon;
+              return (
+                <span key={i} className={styles.heroMetaItem}>
+                  <MetaIcon size={14} strokeWidth={1.5} style={{ flexShrink: 0 }} />
+                  {m.text}
+                </span>
+              );
+            })}
           </div>
         </div>
       </section>

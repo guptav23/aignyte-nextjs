@@ -83,19 +83,22 @@ export default function Nav() {
                 <Link className={styles.megaHeaderLink} href="/industries" onClick={closeDesktopMenus}>View all →</Link>
               </div>
               <div className={styles.megaGrid}>
-                {industries.map((ind) => (
-                  <Link key={ind.href} className={styles.megaItem} href={ind.href} onClick={closeDesktopMenus}>
-                    <div className={styles.megaItemIcon}>{ind.icon}</div>
-                    <div className={styles.megaItemText}>
-                      <div className={styles.megaItemName}>
-                        {ind.name}
-                        {ind.sector && <span className={`${styles.sectorBadge} ${styles[ind.sectorClass]}`}>{ind.sector}</span>}
+                {industries.map((ind) => {
+                  const IndIcon = ind.icon;
+                  return (
+                    <Link key={ind.href} className={styles.megaItem} href={ind.href} onClick={closeDesktopMenus}>
+                      <div className={styles.megaItemIcon}><IndIcon size={16} strokeWidth={1.5} /></div>
+                      <div className={styles.megaItemText}>
+                        <div className={styles.megaItemName}>
+                          {ind.name}
+                          {ind.sector && <span className={`${styles.sectorBadge} ${styles[ind.sectorClass]}`}>{ind.sector}</span>}
+                        </div>
+                        <div className={styles.megaItemDesc}>{ind.desc}</div>
                       </div>
-                      <div className={styles.megaItemDesc}>{ind.desc}</div>
-                    </div>
-                    <div className={styles.megaItemArrow}>→</div>
-                  </Link>
-                ))}
+                      <div className={styles.megaItemArrow}>→</div>
+                    </Link>
+                  );
+                })}
               </div>
               <div className={styles.megaFooter}>
                 <span className={styles.megaFooterText}>
@@ -194,11 +197,14 @@ export default function Nav() {
           </svg>
         </button>
         <div className={`${styles.drawerSubPanel} ${mobileIndustriesOpen ? styles.drawerSubPanelOpen : ''}`}>
-          {industries.map((ind) => (
-            <Link key={ind.href} className={styles.drawerSubItem} href={ind.href}>
-              {ind.icon} {ind.name}
-            </Link>
-          ))}
+          {industries.map((ind) => {
+            const IndIcon = ind.icon;
+            return (
+              <Link key={ind.href} className={styles.drawerSubItem} href={ind.href}>
+                <IndIcon size={16} strokeWidth={1.5} /> {ind.name}
+              </Link>
+            );
+          })}
         </div>
 
         <button

@@ -7,6 +7,7 @@ import styles from './IndustryPage.module.css';
 
 export default function IndustryPageClient({ industry }: { industry: IndustryPage }) {
   const { openLetsTalk } = useModal();
+  const IndustryIcon = industry.icon;
 
   return (
     <>
@@ -19,7 +20,7 @@ export default function IndustryPageClient({ industry }: { industry: IndustryPag
           </div>
           <div className={styles.heroContent}>
             <div className={`${styles.heroEyebrow} fi`}>
-              <span className={styles.heroIcon}>{industry.icon}</span>
+              <span className={styles.heroIcon}><IndustryIcon size={24} strokeWidth={1.5} /></span>
               <span className={styles.heroName}>{industry.name}</span>
             </div>
             <h1 className="fi">{industry.heroTagline}</h1>

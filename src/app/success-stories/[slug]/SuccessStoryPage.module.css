@@ -25,6 +25,7 @@
 .heroSub { font-size: 17px; color: oklch(1 0 0 / 0.50); line-height: 1.65; max-width: 68ch; margin-bottom: 24px; }
 .heroMeta { display: flex; flex-wrap: wrap; gap: 10px; }
 .heroMetaItem {
+  display: inline-flex; align-items: center; gap: 6px;
   font-family: var(--font-geist-mono, 'Geist Mono', monospace);
   font-size: 11px; color: oklch(1 0 0 / 0.40); letter-spacing: 0.04em;
   border: 1px solid oklch(1 0 0 / 0.12); border-radius: 2px; padding: 4px 10px;

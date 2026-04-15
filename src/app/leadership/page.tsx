@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
+import type { LucideIcon } from 'lucide-react';
 import Link from 'next/link';
+import { Target, BarChart3, Plug } from 'lucide-react';
 import styles from './LeadershipPage.module.css';
 import LetsTalkBtn from '@/components/LetsTalkBtn';
 
@@ -79,19 +81,19 @@ const advisors = [
   },
 ];
 
-const values = [
+const values: { icon: LucideIcon; title: string; body: string }[] = [
   {
-    icon: '🎯',
+    icon: Target,
     title: 'Domain depth, not just AI',
     body: 'We understand direct marketing from the inside — the operational realities, the measurement frameworks, the compliance requirements. Our technology is built around how these programs actually run.',
   },
   {
-    icon: '📊',
+    icon: BarChart3,
     title: 'Proof before commitment',
     body: "Every engagement starts with demonstrable lift on your existing campaigns. We don't ask for long-term commitment before we've earned it. The results speak first.",
   },
   {
-    icon: '🔌',
+    icon: Plug,
     title: 'No disruption, no rip-and-replace',
     body: 'We built AIgnyte to slot into your existing stack. No IT project. No new data pipelines. Your execution process stays intact — we just make the creative decisions smarter.',
   },
@@ -166,13 +168,16 @@ export default function LeadershipPage() {
             We exist to make one-to-one marketing real — not theoretical
           </h2>
           <div className={styles.valuesGrid}>
-            {values.map((v) => (
+            {values.map((v) => {
+              const ValueIcon = v.icon;
+              return (
               <div key={v.title} className={`${styles.valueCard} aig-reveal`}>
-                <span className={styles.valueIcon}>{v.icon}</span>
+                <span className={styles.valueIcon}><ValueIcon size={24} strokeWidth={1.5} /></span>
                 <h3 className={styles.valueTitle}>{v.title}</h3>
                 <p className={styles.valueBody}>{v.body}</p>
               </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

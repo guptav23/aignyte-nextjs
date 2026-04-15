@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef, FormEvent } from 'react';
+import { Lock } from 'lucide-react';
 import { useModal } from '@/context/ModalContext';
 import styles from './LetsTalkModal.module.css';
 
@@ -219,7 +220,7 @@ export default function LetsTalkModal() {
               )}
 
               <div className={styles.privacy}>
-                <span className={styles.privacyIcon}>🔒</span>
+                <span className={styles.privacyIcon}><Lock size={16} strokeWidth={1.5} /></span>
                 <span>Your information is confidential and will never be shared with third parties.</span>
               </div>
 

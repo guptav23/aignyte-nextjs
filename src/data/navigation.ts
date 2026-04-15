@@ -1,6 +1,19 @@
-export const industries = [
+import type { LucideIcon } from 'lucide-react';
+import {
+  CreditCard, Landmark, Home, Building2, Shield, Heart,
+  FileText, Wifi, Stethoscope, ShoppingBag,
+} from 'lucide-react';
+
+export const industries: {
+  icon: LucideIcon;
+  name: string;
+  sector: string;
+  sectorClass: string;
+  desc: string;
+  href: string;
+}[] = [
   {
-    icon: '💳',
+    icon: CreditCard,
     name: 'Credit Cards',
     sector: 'Financial Services',
     sectorClass: 'sector-fs',
@@ -8,7 +21,7 @@ export const industries = [
     href: '/industries/credit-cards',
   },
   {
-    icon: '🏦',
+    icon: Landmark,
     name: 'Personal Loans',
     sector: 'Financial Services',
     sectorClass: 'sector-fs',
@@ -16,7 +29,7 @@ export const industries = [
     href: '/industries/personal-loans',
   },
   {
-    icon: '🏠',
+    icon: Home,
     name: 'Mortgage & Home Equity',
     sector: 'Financial Services',
     sectorClass: 'sector-fs',
@@ -24,7 +37,7 @@ export const industries = [
     href: '/industries/mortgage',
   },
   {
-    icon: '🏛️',
+    icon: Building2,
     name: 'Retail Banking',
     sector: 'Financial Services',
     sectorClass: 'sector-fs',
@@ -32,7 +45,7 @@ export const industries = [
     href: '/industries/retail-banking',
   },
   {
-    icon: '🛡️',
+    icon: Shield,
     name: 'Insurance',
     sector: 'Insurance',
     sectorClass: 'sector-ins',
@@ -40,7 +53,7 @@ export const industries = [
     href: '/industries/insurance',
   },
   {
-    icon: '❤️',
+    icon: Heart,
     name: 'Non-Profit',
     sector: 'Non-Profit',
     sectorClass: 'sector-np',
@@ -48,7 +61,7 @@ export const industries = [
     href: '/industries/non-profit',
   },
   {
-    icon: '📋',
+    icon: FileText,
     name: 'Collections',
     sector: 'Financial Services',
     sectorClass: 'sector-fs',
@@ -56,7 +69,7 @@ export const industries = [
     href: '/industries/collections',
   },
   {
-    icon: '📡',
+    icon: Wifi,
     name: 'Telecom & Cable',
     sector: '',
     sectorClass: '',
@@ -64,7 +77,7 @@ export const industries = [
     href: '/industries/telecom',
   },
   {
-    icon: '🏥',
+    icon: Stethoscope,
     name: 'Healthcare & Medicare',
     sector: 'Healthcare',
     sectorClass: 'sector-hc',
@@ -72,14 +85,14 @@ export const industries = [
     href: '/industries/healthcare',
   },
   {
-    icon: '🛍️',
+    icon: ShoppingBag,
     name: 'D2C & E-Commerce',
     sector: 'Retail',
     sectorClass: 'sector-ret',
     desc: 'Acquisition, retention, and win-back — matched to purchase behaviour',
     href: '/industries/d2c-ecommerce',
   },
-] as const;
+];
 
 export const caseStudies = [
   {

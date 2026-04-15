@@ -1,6 +1,8 @@
 'use client';
 
 import Link from 'next/link';
+import type { LucideIcon } from 'lucide-react';
+import { Target, Zap, Printer, BarChart3, Scale, MapPin, FileCheck, Lock } from 'lucide-react';
 import { useModal } from '@/context/ModalContext';
 import styles from './HowItWorksPage.module.css';
 
@@ -55,30 +57,30 @@ const phases = [
   },
 ];
 
-const stackLayers = [
+const stackLayers: { icon: LucideIcon; name: string; desc: string; badge: string; isAignyte: boolean }[] = [
   {
-    icon: '🎯',
+    icon: Target,
     name: 'Targeting & Selection',
     desc: 'Your response models, selection criteria, and prospect file — unchanged',
     badge: 'Yours',
     isAignyte: false,
   },
   {
-    icon: '⚡',
+    icon: Zap,
     name: 'AIgnyte — Message Decisioning Layer',
     desc: 'Assigns optimal creative per individual → returns matched output · Direct mail: 2 days · Email: real-time API',
     badge: 'AIgnyte',
     isAignyte: true,
   },
   {
-    icon: '🖨️',
+    icon: Printer,
     name: 'Execution & Fulfilment',
     desc: 'Your print vendors, email platform, or digital execution stack — unchanged',
     badge: 'Yours',
     isAignyte: false,
   },
   {
-    icon: '📊',
+    icon: BarChart3,
     name: 'Response Data',
     desc: 'Feeds back to AIgnyte automatically — sharpens the next cycle',
     badge: 'Yours',
@@ -116,24 +118,24 @@ const dataflowCells = [
   },
 ];
 
-const constraints = [
+const constraints: { icon: LucideIcon; title: string; body: string }[] = [
   {
-    icon: '⚖️',
+    icon: Scale,
     title: 'Volume & inventory caps',
     body: 'Floor and ceiling constraints on creative volumes built directly into the matching decision.',
   },
   {
-    icon: '📍',
+    icon: MapPin,
     title: 'Geographic & carrier-route rules',
     body: 'Creative eligibility by state, region, or carrier route — applied at the individual level.',
   },
   {
-    icon: '📋',
+    icon: FileCheck,
     title: 'Regulatory & compliance rules',
     body: 'Suppression lists, opt-out requirements, FCRA rules, and product restrictions — hard constraints, never overridden.',
   },
   {
-    icon: '🔒',
+    icon: Lock,
     title: 'No PII — privacy by design',
     body: "De-identified data only. No personally identifiable information passes through AIgnyte's systems at any stage.",
   },
@@ -200,15 +202,18 @@ export default function HowItWorksPage() {
             infrastructure are all untouched.
           </p>
           <div className={styles.integrationFlow}>
-            {stackLayers.map((layer, i) => (
+            {stackLayers.map((layer, i) => {
+              const LayerIcon = layer.icon;
+              return (
               <div key={i} className={styles.intStep}>
                 <div className={`${styles.intDot} ${layer.isAignyte ? styles.intDotAignyte : ''}`}>
-                  {layer.icon}
+                  <LayerIcon size={20} strokeWidth={1.5} />
                 </div>
                 <p className={styles.intLabel}>{layer.name}</p>
                 <p className={styles.intSub}>{layer.desc}</p>
               </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -220,15 +225,18 @@ export default function HowItWorksPage() {
             <span className="section-tag">Examples of practical constraints AIgnyte incorporates</span>
           </div>
           <div className={styles.constraintsGrid}>
-            {constraints.map((c) => (
+            {constraints.map((c) => {
+              const ConstraintIcon = c.icon;
+              return (
               <div key={c.title} className={`${styles.constraintCard} aig-reveal`}>
-                <div className={styles.constraintCheck}>{c.icon}</div>
+                <div className={styles.constraintCheck}><ConstraintIcon size={20} strokeWidth={1.5} /></div>
                 <div>
                   <h3 className={styles.constraintTitle}>{c.title}</h3>
                   <p className={styles.constraintBody}>{c.body}</p>
                 </div>
               </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

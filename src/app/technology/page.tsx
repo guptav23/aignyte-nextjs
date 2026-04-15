@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { Dna } from 'lucide-react';
 import Link from 'next/link';
 import { useModal } from '@/context/ModalContext';
 import DirectMailDemo from '@/components/sections/DirectMailDemo';
@@ -147,7 +148,7 @@ export default function TechnologyPage() {
           <DirectMailDemo />
 
           <div style={{ background: 'oklch(1 0 0 / 0.04)', border: '1px solid oklch(0.68 0.160 50 / 0.30)', borderRadius: 8, padding: '18px 22px', display: 'flex', gap: 14, alignItems: 'flex-start' }}>
-            <span style={{ fontSize: 20 }}>🧬</span>
+            <Dna size={20} strokeWidth={1.5} style={{ color: 'var(--orange)', flexShrink: 0 }} />
             <div>
               <div style={{ fontSize: 10, fontWeight: 700, color: 'var(--orange)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 6 }}>Stage 1 Output</div>
               <div style={{ fontSize: 15, fontWeight: 700, color: 'oklch(1 0 0 / 0.85)', marginBottom: 6, lineHeight: 1.4 }}>
