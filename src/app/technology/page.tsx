@@ -1,10 +1,8 @@
 'use client';
 
 import React from 'react';
-import { Dna } from 'lucide-react';
 import Link from 'next/link';
 import { useModal } from '@/context/ModalContext';
-import DirectMailDemo from '@/components/sections/DirectMailDemo';
 import styles from './TechnologyPage.module.css';
 
 const stages = [
@@ -125,39 +123,6 @@ export default function TechnologyPage() {
               AIgnyte exists to make that decision.{' '}
               <strong>For every person. Every campaign cycle. Automatically.</strong>
             </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Stage 1 — Genetic Signature */}
-      <section className={styles.contrast}>
-        <div className={styles.contrastInner}>
-          <span className="section-tag light">Stage One</span>
-          <h2 style={{ color: 'oklch(1 0 0 / 0.92)', margin: '16px 0 16px' }}>
-            Genetic Signature — Decoding the creative
-          </h2>
-          <p style={{ fontSize: 15, color: 'oklch(1 0 0 / 0.45)', lineHeight: 1.75, maxWidth: 700, marginBottom: 40 }}>
-            Just as a fingerprint uniquely identifies a person, a Genetic Signature uniquely
-            characterizes a creative. AIgnyte analyzes every element of every creative asset in
-            your catalog — the envelope, the letter, the headline, the offer, the layout — and
-            decomposes it into thousands of precise data points across four dimensions. This
-            encoding happens once per creative and persists across campaigns.
-          </p>
-
-          {/* Interactive annotated credit card / direct mail demo */}
-          <DirectMailDemo />
-
-          <div style={{ background: 'oklch(1 0 0 / 0.04)', border: '1px solid oklch(0.68 0.160 50 / 0.30)', borderRadius: 8, padding: '18px 22px', display: 'flex', gap: 14, alignItems: 'flex-start' }}>
-            <Dna size={20} strokeWidth={1.5} style={{ color: 'var(--orange)', flexShrink: 0 }} />
-            <div>
-              <div style={{ fontSize: 10, fontWeight: 700, color: 'var(--orange)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 6 }}>Stage 1 Output</div>
-              <div style={{ fontSize: 15, fontWeight: 700, color: 'oklch(1 0 0 / 0.85)', marginBottom: 6, lineHeight: 1.4 }}>
-                Every creative in your catalog is represented by its Genetic Signature — a unique fingerprint of the creative that captures everything that matters at an atomic level.
-              </div>
-              <div style={{ fontSize: 13, color: 'oklch(1 0 0 / 0.38)', lineHeight: 1.65 }}>
-                A new creative is decoded once when it enters your catalog. After that, its Genetic Signature is available for every future campaign cycle. The more creatives you have, the more personalization surface AIgnyte has to work with.
-              </div>
-            </div>
           </div>
         </div>
       </section>
