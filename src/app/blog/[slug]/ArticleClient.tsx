@@ -7,9 +7,8 @@ import styles from './ArticlePage.module.css';
 
 // Article content keyed by slug
 function ArticleContent({ slug }: { slug: string }) {
-  if (slug === 'why-ab-testing-is-lying-to-you') {
-    return <AbTestingArticle />;
-  }
+  if (slug === 'why-ab-testing-is-lying-to-you') return <AbTestingArticle />;
+  if (slug === 'right-message-right-customer') return <RightMessageArticle />;
   return null;
 }
 
@@ -130,6 +129,116 @@ function AbTestingArticle() {
   );
 }
 
+function RightMessageArticle() {
+  return (
+    <div className={styles.articleWrap}>
+      {/* Intro */}
+      <div className={styles.scene}>
+        <p>&ldquo;Right message, right customer, right time.&rdquo; Everyone in direct marketing has heard this. Most companies have tried to act on it. Most have been surprised when it either didn&apos;t work, or worked briefly and stopped.</p>
+        <p>The problem isn&apos;t the idea. The problem is that most systems treat those three variables as fixed and independent when they&apos;re neither. They&apos;re dynamic. They interact. What&apos;s right for a customer today isn&apos;t right for that same person next month, or even next week.</p>
+        <p className={styles.sceneBreak}>Think about how Netflix recommends content. A static preference map would be useless: it would ignore what you&apos;ve already watched, ignore what you&apos;ve been shown five times without clicking, ignore that your Friday night mood is nothing like Tuesday morning. The reason a recommendation engine works is that it never stops reading new signals. Direct marketing is the same problem. The question is what it actually takes to solve it.</p>
+      </div>
+
+      <hr className={styles.flawDivider} />
+
+      {/* Section 1 */}
+      <div className={styles.flawBlock}>
+        <div className={styles.flawHeader}>
+          <span className={styles.flawNum}>1</span>
+          <div className={styles.flawHeaderText}>
+            <span className={styles.flawLabel}>Why &ldquo;More Dynamic&rdquo; Segmentation Still Isn&apos;t the Answer</span>
+            <h3>Granularity doesn&apos;t fix a group-level problem</h3>
+          </div>
+        </div>
+        <div className={styles.flawBody}>
+          <p>The first instinct, once you accept that static approaches don&apos;t work, is to make segments less static. Update them more often. Add more variables. Split &ldquo;lapsed high-value&rdquo; into &ldquo;lapsed high-value price-sensitive&rdquo; and &ldquo;lapsed high-value timing-missed.&rdquo; This is marginal progress. It doesn&apos;t solve the underlying problem.</p>
+          <p>Segmentation is a group-level decision. No matter how granular you make it, you&apos;re deciding what to show a type of customer and applying that to the individuals who fall into the category. Two customers in the same micro-segment have different histories with your brand, different recent behaviours, different points in their journey. The segment can&apos;t know that one opened your last three emails without clicking while the other hasn&apos;t engaged in four months. Those signals belong to individuals, not categories.</p>
+          <p>The operational cost compounds this. More segments means more creative, more testing, more rules to maintain. A/B testing a new offer across five segments means ten variants, five holdout groups, weeks of runtime before you have usable signal. The complexity grows faster than the returns do.</p>
+          <div className={styles.dmMirror}>
+            <span className={styles.dmMirrorLabel}>In your campaigns, this looks like</span>
+            <p>A customer moves from &ldquo;high-value prospect&rdquo; to &ldquo;first-time buyer&rdquo; mid-campaign. The segment logic wasn&apos;t built for the transition. They receive an acquisition offer the day after their first purchase, contradicting the behaviour you wanted to reward. <strong>The rule was right for the segment. It was wrong for the person.</strong></p>
+          </div>
+        </div>
+      </div>
+
+      <hr className={styles.flawDivider} />
+
+      {/* Section 2 */}
+      <div className={styles.flawBlock}>
+        <div className={styles.flawHeader}>
+          <span className={styles.flawNum}>2</span>
+          <div className={styles.flawHeaderText}>
+            <span className={styles.flawLabel}>What &ldquo;Truly Dynamic&rdquo; Actually Requires</span>
+            <h3>Two types of signal — and most systems only read one</h3>
+          </div>
+        </div>
+        <div className={styles.flawBody}>
+          <p>A truly dynamic system has to operate at the individual level. And it has to read two types of signal that segments can&apos;t capture together.</p>
+          <p>The first belongs to the customer: what messages they&apos;ve received, what they&apos;ve responded to, what they&apos;ve ignored, and how that pattern has shifted over time. A customer who responded to urgency-based messaging six months ago but has stopped engaging is telling you something. One who&apos;s opened four emails without clicking is telling you something different from one who hasn&apos;t opened at all. These signals don&apos;t exist at the segment level because no two customers have the same history.</p>
+          <p>The second belongs to the world around the customer. Interest rates move. A competitor launches an aggressive acquisition campaign. A season turns. These aren&apos;t customer-level signals, but they change what the right message is just as much as anything in the customer&apos;s own history. A mortgage offer that was compelling at 7% rates needs a different conversation when rates have shifted. A customer you share with a competitor running heavy promotions is in a different decision context than they were last month.</p>
+          <p>Most personalisation systems address one of these signal types and not the other. That&apos;s why even &ldquo;dynamic&rdquo; programs still leave significant lift on the table.</p>
+          <div className={styles.dmMirror}>
+            <span className={styles.dmMirrorLabel}>In your campaigns, this looks like</span>
+            <p>Your lending competitor drops rates by 50 basis points. The urgency message that was working last week is now second-best. A segment-based system keeps sending the same creative until your next review cycle. <strong>An individual-level system shifts immediately, because the context around each decision has changed.</strong></p>
+          </div>
+        </div>
+      </div>
+
+      <hr className={styles.flawDivider} />
+
+      {/* Section 3 */}
+      <div className={styles.flawBlock}>
+        <div className={styles.flawHeader}>
+          <span className={styles.flawNum}>3</span>
+          <div className={styles.flawHeaderText}>
+            <span className={styles.flawLabel}>What Changes at the Individual Level</span>
+            <h3>Recalibration, not just optimisation</h3>
+          </div>
+        </div>
+        <div className={styles.flawBody}>
+          <p>Once you&apos;re making decisions at the individual level, two things become possible that weren&apos;t before.</p>
+          <p>The first is genuine recalibration. Not optimising harder in one direction, but changing direction as the situation changes. A customer who was responding to one message type and has stopped gets a different approach. A context that made one creative effective and has since shifted gets a different creative. The system isn&apos;t finding the best answer to a fixed question. It&apos;s continuously reassessing what the right question is.</p>
+          <p>The second is compounding learning. Every interaction is a data point about what worked for this specific person, in this specific context. A segment-level system gets better at picking the right message for a type of customer. An individual-level system gets better at picking the right message for this customer, right now.</p>
+        </div>
+      </div>
+
+      <hr className={styles.flawDivider} />
+
+      {/* Section 4 */}
+      <div className={styles.flawBlock}>
+        <div className={styles.flawHeader}>
+          <span className={styles.flawNum}>4</span>
+          <div className={styles.flawHeaderText}>
+            <span className={styles.flawLabel}>Why AIgnyte Changes This</span>
+            <h3>A system designed to keep redirecting itself</h3>
+          </div>
+        </div>
+        <div className={styles.flawBody}>
+          <p>AIgnyte operates at the individual level. It doesn&apos;t assign customers to categories and map those categories to messages. It makes a separate decision for each person, based on their full interaction history alongside the external context surrounding that decision.</p>
+          <p>It recalibrates rather than just optimises. When a customer&apos;s behaviour shifts, the system shifts with them. When external conditions change, so does what the system does. It isn&apos;t getting better at the same answer. It&apos;s continuously reassessing what the right answer is.</p>
+          <p>The result is sustained lift. Not a one-time improvement from a better creative test, but a system that keeps getting more precise because it never stops learning.</p>
+        </div>
+      </div>
+
+      {/* Closing prose */}
+      <div className={styles.prose}>
+        <h2>The goal was always right. The system just wasn&apos;t built for it.</h2>
+        <p>Right message, right customer, right time was always the correct framing. The gap was never in the ambition. It was in what the tools could do. Treating dynamic, interconnected variables as fixed and independent was a pragmatic compromise, not a strategic choice. Programs that plateau, creative tests that don&apos;t hold in production, rules that worked in January but not June: these aren&apos;t execution problems. They&apos;re the ceiling of a static system applied to a dynamic problem.</p>
+        <p>That ceiling is removable. Individual-level decisioning, reading both the customer&apos;s history and the world around them and recalibrating continuously, changes what&apos;s possible. Not marginally. Fundamentally.</p>
+      </div>
+
+      {/* Summary */}
+      <div className={styles.landingStatement}>
+        <p>
+          Static systems pick a message <em>for a type of customer</em>.<br />
+          Dynamic systems pick the right message <em>for this customer, right now</em>.<br />
+          The difference compounds with every interaction.
+        </p>
+      </div>
+    </div>
+  );
+}
+
 export default function ArticleClient({ post }: { post: BlogPost }) {
   const { openLetsTalk } = useModal();
 
@@ -143,7 +252,7 @@ export default function ArticleClient({ post }: { post: BlogPost }) {
             <span className={styles.articleTag}>{post.tag}</span>
             <span className={styles.articleDate}>{post.readTime}</span>
           </div>
-          <h1 dangerouslySetInnerHTML={{ __html: post.title.replace('lying', '<em>lying</em>') }} />
+          <h1 dangerouslySetInnerHTML={{ __html: post.titleHtml ?? post.title }} />
           <p className={styles.articleDeck}>{post.deck}</p>
         </div>
       </div>
@@ -167,8 +276,8 @@ export default function ArticleClient({ post }: { post: BlogPost }) {
       {/* CTA band */}
       <div className={styles.ctaBand}>
         <div className={styles.ctaBandInner}>
-          <h2>What would your campaigns look like without A/B testing?</h2>
-          <p>Talk to us about how Message Decisioning works for your program — and what response lift you&apos;re currently leaving on the table.</p>
+          <h2>{post.ctaH2 ?? 'What would your campaigns look like with Message Decisioning?'}</h2>
+          <p>{post.ctaPara ?? 'Talk to us about how Message Decisioning works for your program — and what response lift you\'re currently leaving on the table.'}</p>
           <button className="btn-primary" onClick={openLetsTalk}>Let&apos;s Talk</button>
         </div>
       </div>
